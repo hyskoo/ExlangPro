@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+
+<configuration>
+	<settings>
+		<setting name="mapUnderscoreToCamelCase" value="true" />
+	</settings>
+	
+	<typeAliases>
+		<typeAlias type="kr.ac.exlang.model.Notice" alias="Notice" />
+		<typeAlias type="kr.ac.exlang.model.Board" alias="Board" />
+		<typeAlias type="kr.ac.exlang.model.Member" alias="Member" />
+	</typeAliases>
+
+	<mappers>
+		<mapper resource="mybatis/notice.xml" />
+		<mapper resource="mybatis/board.xml" />
+		<mapper resource="mybatis/member.xml" />
+	</mappers>
+</configuration>
