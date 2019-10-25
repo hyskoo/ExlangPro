@@ -47,7 +47,7 @@ public class FileUpload {
 				uploadFile.transferTo(new File(path + filename));
 
 //				파일업로드 폴더 추가생성해야됨
-		
+				//안녕하세요? 
 		
 				return true;
 				
