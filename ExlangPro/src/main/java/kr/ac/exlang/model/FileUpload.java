@@ -40,10 +40,12 @@ public class FileUpload {
 		this.uploadFile = uploadFile;
 		filename = uuid.toString() + "_" + uploadFile.getOriginalFilename();
 		filesize = uploadFile.getSize();
+		
 	}
 	public boolean transferTo(String path) {
 		if(uploadFile != null) {
 			try {
+				
 				uploadFile.transferTo(new File(path + filename));
 
 //				파일업로드 폴더 추가생성해야됨

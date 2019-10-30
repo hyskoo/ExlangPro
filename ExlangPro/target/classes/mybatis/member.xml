@@ -29,8 +29,6 @@
 		WHERE m_id = #{mId}
 	</update>
 	
-	
-	
 	<delete id="delete">
 		DELETE FROM member
 		WHERE m_id = #{mId}
@@ -40,6 +38,16 @@
 		SELECT m_id, m_pw, m_auth
 		FROM member
 		WHERE m_id = #{mId} AND m_pw = #{mPw}
+	</select>
+	
+	<select id="indexlist" resultType="Member">
+		SELECT *
+		FROM member
+		
+		<![CDATA[
+		WHERE ROWNUM <= 10 AND m_pl = 'Korean'
+		]]>
+		
 	</select>
 
 	

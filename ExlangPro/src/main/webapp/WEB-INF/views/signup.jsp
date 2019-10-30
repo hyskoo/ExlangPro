@@ -74,7 +74,7 @@ function check(){
 
 jq(function() {
 	// 아이디 중복체크 확인
-	jq("#idch").click(function(event){	
+	jq("#mId").blur(function(event){	
 		event.preventDefault();  // 이벤트 초기화
 		
 		var id = jq('#mId').val();
@@ -117,6 +117,9 @@ jq(function() {
 		var data = new FormData();
 		data.append("uploadFile", jq("#upload").prop("files")[0]);
 		
+		console.log(jq("#upload").val());
+		console.log(jq("#upload").prop("files")[0]);
+		
 		var fileNm = jq("#upload").val();
 		if (fileNm != "") {
 		    var ext = fileNm.slice(fileNm.lastIndexOf(".") + 1).toLowerCase();
@@ -135,6 +138,7 @@ jq(function() {
 					data : data,
 					dataType : 'json',
 					success : function(result){
+						alert(result.url);
 						var enc = result.filename;
 						console.log(enc.substring(33,100));  // uuid 자르기
 						jq("input[name=mImg]").attr("value",enc);  //input태그에 ajax성공값추가
@@ -170,7 +174,7 @@ function PreviewFile(e) {
 		
 		var reader = new FileReader();
 		reader.onload = function(e){
-			jq("#img").attr("src", e.target.result);
+			jq("#profileimg").attr("src", e.target.result);
 		}
 		reader.readAsDataURL(f);
 	});
@@ -181,66 +185,47 @@ function PreviewFile(e) {
 </script>
 </head>
 <body>
-	<div>
-		<input type="file" id="upload">
-	</div>
-	<div>
-		<img id = "img" />
-	</div>
-	<form action="signup" method="post" onsubmit="return check();" id="form_id">
-	
-		<input type="text" name="mImg" id="mImg" readonly>
-		
-		<div>
-			<label>아이디:</label>
-			<input type="text" name="mId" minlength="4" placeholder="ID" id="mId" onkeyup="noSpace(this);">
-			<button id="idch" >중복체크</button>
-			<div id="id_check"></div>
-		</div>
-		<div>
-			<label>비밀번호:</label>
-			<input type="text" name="mPw" id="mPw" maxlength="12" onkeyup="noSpace(this);">
-		</div>
-		<div>
-			<label>비밀번호 확인 : </label>
-			<input type="text" name =mPwcheck id="mPwcheck" maxlength="12" onkeyup="noSpace(this);">
-		</div>
-		
-		<div>
-			<label>이름:</label>
-			<input type="text" name="mName" id="mName">
-		</div>
-		
-		<div>
-			<label>나이:</label>
-			<input type="number" name="mAge" id="mAge">
-		</div>
-		<div>
-			<label>성별:</label>
-			<input type="radio" name="mGender" value="♂" id="mGender" checked="checked"> 
-			<label for="gender_man"><span>Man</span></label>
-			<input type="radio" name="mGender" value="♀" id="mGender">
-			<label for="gender_woman"><span>Woman</span></label>
-		</div>
-		<div>
-			<label>모국어:</label>
-			<input type="text" name="mNl" id="mNl">
-		</div>
-		<div>
-			<label>배울언어:</label>
-			<input type="text" name="mPl" id="mPl">
-		</div>
-		<div>
-			<label>취미:</label>
-			<input type="text" name="mHobby" id="mHobby">
-		</div>
-		<div>
-			<label>자기소개:</label>
-			<input type="text" name="mIntro" id="mIntro">
-		</div>
-		<div>
-			<input type="submit" value="등록" id="submitBtn">
-		</div>
-	</form>
+	<div class="main">
+	    <p class="sign" align="center">Sign Up</p>
+	    
+	    <form action="signup" method="post" onsubmit="return check();" id="form_id" class="form_id">
+
+		    	<input class="signInput" align="center" type="text" name="mId" id="mId" minlength="4"  onkeyup="noSpace(this);" placeholder="UserID">
+				<div id="id_check" align="center"></div>
+			
+				<input class="signInput" align="center" type="text" name =mPw id="mPw" maxlength="12" onkeyup="noSpace(this);" placeholder="PassWord" >
+			
+				<input class="signInput" align="center" type="password" name =mPwcheck id="mPwcheck" maxlength="12" onkeyup="noSpace(this);" placeholder="PassWordCheck" >						
+	      	
+	      		<input class="signInput" align="center" type="text" name="mName" id="mName" placeholder="Name">
+			
+				<input class="signInput" align="center" type="number" name="mAge" id="mAge" placeholder="Age">
+				<div class="radio">
+					<input type="radio" name="mGender" value="♂" id="mGender" checked="checked"> 
+					<label for="gender_man"><span>Man</span></label>
+					<input type="radio" name="mGender" value="♀" id="mGender">
+					<label for="gender_woman"><span>Woman</span></label>		
+				</div>
+				
+				<input class="signInput" align="center" type="text" name="mNl" id="mNl" placeholder="Native Language">
+			
+				<input class="signInput" align="center" type="text" name="mPl" id="mPl"  placeholder="Practice Language">
+				
+				<input class="signInput" align="center" type="text" name="mHobby" id="mHobby"  placeholder="Hobby">
+				
+				<input class="signInput" align="center" type="text" name="mIntro" id="mIntro"  placeholder="Plase Write Your Introduce">
+			<div>
+				<div class="imageupload">
+					<input id="upload" type="file">
+					<input type="hidden" name="mImg" id="mImg" readonly>
+					<img id = "profileimg" class="profileimg"/>
+				</div>
+			</div>
+	      <div>
+	      	<input type="submit" value="Sign Up" class="submitBtn">
+	      </div>
+<!-- 	      <p class="forgot" align="center"><a href="#">Forgot Password?</p> -->
+	    </form>
+    </div>
 </body>
 </html>

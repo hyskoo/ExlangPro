@@ -32,7 +32,11 @@ public class RootController {
 	MemberService service;	
 	
 	@RequestMapping("/")
-	String index() {
+	String index(Model model) {
+		
+		List <Member> list = service.indexlist();
+		
+		model.addAttribute("list", list);
 		
 		return "index";
 	}

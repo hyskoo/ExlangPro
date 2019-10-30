@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Login</title>
-<link rel="stylesheet" type="text/css" href="/resources/signup.css">
+<link rel="stylesheet" type="text/css" href="/resources/login.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
 
@@ -28,7 +28,7 @@ function noSpace(fuc) { //input에서 사용한 태그에서 실행하는 함수
 //회원가입 유효성 검사
 
 $(function(){
-	$('#submitBtn').click(function(event){
+	$('.submitBtn').click(function(event){
 		event.preventDefault(); //이벤트 초기화
 		
 		var id = $("#mId").val();
@@ -69,20 +69,16 @@ $(function(){
 </script>
 </head>
 <body>
-	<form action="loginPost" method="post" onsubmit="return check();" id="form_id">
-		<div>
-			<label>아이디:</label>
-			<input type="text" name="mId" id="mId" placeholder="ID"  minlength="4"  onkeyup="noSpace(this);">
-		</div>
-		<div>
-			<label>비밀번호:</label>
-			<input type="text" name="mPw" id="mPw" placeholder="PassWord" maxlength="12" onkeyup="noSpace(this);">
-		</div>
-
-		<div>
-			<input type="submit" value="로그인" id="submitBtn">
-<!-- 			<button type="button" id="submitBtn">로그인</button> -->
-		</div>
-	</form>
+	<div class="main">
+	    <p class="sign" align="center">Sign in</p>
+	    <form action="loginPost" method="post" onsubmit="return check();" id="form_id" class="form_id">
+	      <input class="un " align="center" type="text" name="mId" id="mId" placeholder="UserID"  minlength="4"  onkeyup="noSpace(this);">
+	      <input class="pass" align="center" type="password" name="mPw" id="mPw" placeholder="PassWord" maxlength="12" onkeyup="noSpace(this);">
+	      <div>
+	      <input type="submit" value="로그인" class="submitBtn">
+	      </div>
+<!-- 	      <p class="forgot" align="center"><a href="#">Forgot Password?</p> -->
+	    </form>
+    </div>
 </body>
 </html>

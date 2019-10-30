@@ -27,11 +27,42 @@ $(function() {
 		maxHeight: 1000,
         placeholder: 'Hello bootstrap 4',
         tabsize: 10,
-
+        focus: true,
+        callbacks: {
+			onImageUpload: function(files, editor, welEditable) {
+				for (var i = files.length - 1; i >= 0; i--) {
+					sendFile(files[i], this);
+				}	
+			}
+		},
+        
       });
-// 	$('.dropdown-toggle').dropdown()
+	$('.dropdown-toggle').dropdown()
 });
 
+//FileUpload
+function sendFile(files, editor) {
+	var data = new FormData();
+	data.append("uploadFile", files);
+	
+	   	$.ajax({
+			data : data,
+			type : "POST",
+			url : "/notice/upload",
+			enctype : "multipart/form-data",
+			contentType: false,
+			processData: false,
+			success : function(result){
+				console.log(result);
+				$(editor).summernote('editor.insertImage', result.url);
+			},
+			error : function(request,status,error){   
+				console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error); 
+				}
+		});
+}
+	 
+//유효성검사
 function check() {
 	var title = $('#nTitle').val();
 	var contents = $('#summernote').val();

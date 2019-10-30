@@ -7,6 +7,7 @@ public class Notice {
 	String mId;
 	String nTitle;
 	String nContents;
+	String nImg;
 	Date nDate;
 	
 	
@@ -39,6 +40,12 @@ public class Notice {
 	}
 	public void setnDate(Date nDate) {
 		this.nDate = nDate;
+	}
+	public String getnImg() {
+		return nImg;
+	}
+	public void setnImg(String nImg) {
+		this.nImg = nImg;
 	}
 
 }

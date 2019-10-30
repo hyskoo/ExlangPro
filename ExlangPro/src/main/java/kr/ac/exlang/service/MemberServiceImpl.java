@@ -51,4 +51,11 @@ public class MemberServiceImpl implements MemberService {
 		return dao.login(member);
 	}
 
+	@Override
+	public List<Member> indexlist() {
+		
+		//RootController
+		return dao.indexlist();
+	}
+
 }

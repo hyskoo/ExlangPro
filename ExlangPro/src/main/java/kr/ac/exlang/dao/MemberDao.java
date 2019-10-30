@@ -18,4 +18,6 @@ public interface MemberDao {
 
 	int idch(String mId);
 
+	List<Member> indexlist();
+
 }

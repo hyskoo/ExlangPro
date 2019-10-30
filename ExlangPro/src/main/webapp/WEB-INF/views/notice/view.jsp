@@ -13,7 +13,6 @@
 </script>
 <body>
 	
-<p>${sessionScope.login} ----- ${sessionScope.auth} ---- ${item.nId}</p>
 	<div>
 		제목 : ${item.nTitle}
 	</div>

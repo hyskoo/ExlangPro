@@ -18,4 +18,6 @@ public interface MemberService {
 
 	int idch(String mId);
 
+	List<Member> indexlist();
+
 }

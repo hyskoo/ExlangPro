@@ -45,7 +45,6 @@
 	</div>
 	
 <!-- 관리자 여부 확인용 C:when대신 C:if를 사용했다 -->
-<p>${sessionScope.login_id} ----- ${sessionScope.login_pw} ------- 권한 : ${sessionScope.auth}</p>
 	<c:if test="${sessionScope.auth != null and sessionScope.auth != 0}">
 		<div><a href="add">등록</a></div>
 		<p>관리자입니다.</p>

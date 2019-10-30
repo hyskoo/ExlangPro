@@ -52,4 +52,10 @@ public class MemberDaoImpl implements MemberDao {
 		return sql.selectOne("member.login", member);
 	}
 
+	@Override
+	public List<Member> indexlist() {
+		
+		return sql.selectList("member.indexlist");
+	}
+
 }
