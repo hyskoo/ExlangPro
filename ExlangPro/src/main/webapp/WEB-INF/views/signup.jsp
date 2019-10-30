@@ -78,12 +78,15 @@ jq(function() {
 		//input태그에서 id에 해당하는 변수명
 		
 		if(id == ""){
+			jq("#id_check").css("color", "black");
 			jq("#id_check").text("아이디를 입력해주세요.");
 			return false;
 		} else if(!regExp.test(id)) {
-			jq("#id_check").text("아이디는 4~10자리의 영소문자 및 숫자만 사용이 가능합니다.");
+			jq("#id_check").css("color", "black");
+			jq("#id_check").text("ID can only 4~12 letters long");
 			return false;
 		} else if(regExp.test(id)) {
+			jq("#id_check").css("color", "black");
 			jq("#id_check").text("사용가능한 아이디 입니다.");
 		} 
 

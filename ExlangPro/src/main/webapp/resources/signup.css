@@ -27,6 +27,10 @@ body {
 	font-size: 23px;
 }
 
+#id_check {
+	margin-bottom: 27px;
+}
+
 
 .radio {
 	position: relative;
