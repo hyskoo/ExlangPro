@@ -33,9 +33,6 @@ function check(){
 		alert("비밀번호가 다릅니다.");
 		mPwcheck.focus();
 		return false;
-	} else if (jq('#mImg').val().substring(33,100).length > 19) {
-		alert("파일명은 16글자 이하만 가능합니다");
-		return false;
 	} else if (jq("#mId").val() == "") {
 		alert("아이디를 입력해주세요");
 		return false;
@@ -190,10 +187,10 @@ function PreviewFile(e) {
 	    
 	    <form action="signup" method="post" onsubmit="return check();" id="form_id" class="form_id">
 
-		    	<input class="signInput" align="center" type="text" name="mId" id="mId" minlength="4"  onkeyup="noSpace(this);" placeholder="UserID">
+		    	<input class="signInput" align="center" type="text" name="mId" id="mId" minlength="4" maxlength="10" onkeyup="noSpace(this);" placeholder="UserID">
 				<div id="id_check" align="center"></div>
 			
-				<input class="signInput" align="center" type="text" name =mPw id="mPw" maxlength="12" onkeyup="noSpace(this);" placeholder="PassWord" >
+				<input class="signInput" align="center" type="text" name =mPw id="mPw" minlength="4" maxlength="12" onkeyup="noSpace(this);" placeholder="PassWord" >
 			
 				<input class="signInput" align="center" type="password" name =mPwcheck id="mPwcheck" maxlength="12" onkeyup="noSpace(this);" placeholder="PassWordCheck" >						
 	      	

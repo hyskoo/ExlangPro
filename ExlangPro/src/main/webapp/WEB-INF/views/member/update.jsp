@@ -6,10 +6,22 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="/resources/common.css">
+<link rel="stylesheet" type="text/css" href="/resources/signup.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
 var jq = jQuery.noConflict();
+
+var regExp = /^[a-z]+[a-z0-9]{3,11}$/;	// 맨처음 1자리를 먹었으므로 뒤에 오는 {3~11}에 의해 실제로는 4~12자리를 의미
+
+//공백 체크
+function noSpace(fuc) { //input에서 사용한 태그에서 실행하는 함수
+	var rspace = /\s/g; //정규표현식 (공백)	
+	if(rspace.exec(fuc.value)) { //공백을 체크
+		alert("공백을 사용할 수 없습니다.");
+		fuc.value = fuc.value.replace(' ',''); //공백제거
+		return false;
+	}
+}
 
 function check(){	
 	if(jq("#mPw").val() != jq("#mPwcheck").val()){
@@ -58,7 +70,6 @@ jq(function(){
 	jq("#upload").change(function(){
 		var data = new FormData();
 		data.append("uploadFile", jq("#upload").prop("files")[0]);
-		
 		var fileNm = jq("#upload").val();
 		if (fileNm != "") {
 		    var ext = fileNm.slice(fileNm.lastIndexOf(".") + 1).toLowerCase();
@@ -78,7 +89,6 @@ jq(function(){
 					dataType : 'json',
 					success : function(result){
 						var enc = result.filename;
-						jq("#imgdiv").css("display","none");
 						jq("input[type=text][name=mImg]").val(enc);
 						var m_img = jq("#mImg").val();
 						console.log(m_img);
@@ -110,7 +120,7 @@ function PreviewFile(e) {
 		
 		var reader = new FileReader();
 		reader.onload = function(e){
-			jq("#img").attr("src", e.target.result);
+			jq("#profileimg").attr("src", e.target.result);
 		}
 		reader.readAsDataURL(f);
 	});
@@ -119,62 +129,51 @@ function PreviewFile(e) {
 </script>
 </head>
 <body>
-	<div>
-		<div>
-			<label>ProfilePhoto : </label>
-					<div><img id="imgdiv" src="<spring:url value='/upload/signup/${list.mImg}'/>" /></div>
-			<img id = "img" />
-		</div>
-		<div>
-			<input type="file" id="upload">
-		</div>
-		<form action="update" method="post" onsubmit="return check();">
+	<div class="main">
+	    <p class="sign" align="center">My Page</p>
+	    
+	    <form action="update" method="post" onsubmit="return check();" id="form_id" class="form_id">
+
+		    	<input class="signInput" align="center" type="text" name="mId" id="mId" minlength="4" maxlength="10" onkeyup="noSpace(this);" placeholder="UserID" value="${list.mId}" readonly>
+				<div id="id_check" align="center"></div>
+			
+				<input class="signInput" align="center" type="password" name =mPw id="mPw" minlength="4" maxlength="12" onkeyup="noSpace(this);" placeholder="PassWord" >
+			
+				<input class="signInput" align="center" type="password" name =mPwcheck id="mPwcheck" maxlength="12" onkeyup="noSpace(this);" placeholder="PassWordCheck" >						
+	      	
+	      		<input class="signInput" align="center" type="text" name="mName" id="mName" placeholder="Name" value="${list.mName}">
+			
+				<input class="signInput" align="center" type="number" name="mAge" id="mAge" placeholder="Age" value="${list.mAge}">
+				<div class="radio">
+					<input type="radio" name="mGender" value="♂" id="mGender" ${list.mGender eq '♂' ? 'checked=checked' : ' '}> 
+					<label for="gender_man"><span>Man</span></label>
+					<input type="radio" name="mGender" value="♀" id="mGender" ${list.mGender eq '♀' ? 'checked=checked' : ' '}>
+					<label for="gender_woman"><span>Woman</span></label>		
+				</div>
+				
+				<input class="signInput" align="center" type="text" name="mNl" id="mNl" placeholder="Native Language" value="${list.mNl}">
+			
+				<input class="signInput" align="center" type="text" name="mPl" id="mPl"  placeholder="Practice Language" value="${list.mPl}">
+				
+				<input class="signInput" align="center" type="text" name="mHobby" id="mHobby"  placeholder="Hobby" value="${list.mHobby}">
+				
+				<input class="signInput" align="center" type="text" name="mIntro" id="mIntro"  placeholder="Plase Write Your Introduce" value="${list.mIntro}">
 			<div>
-				<input type="text" name="mImg" id="mImg" value="${list.mImg}" readonly>
+				<div class="imageupload">
+					<input id="upload" type="file">
+					<img id="profileimg" class="profileimg" src="<spring:url value='/upload/signup/${list.mImg}'/>" />
+					
+					<!-- type="hidden"사용시 value값을 변하게 하지 못함-->
+					<div style="display:none">
+						<input type="text" name="mImg" id="mImg" value="${list.mImg}" readonly>
+					</div>
+				</div>
 			</div>
-			<div>
-				<label>ID : </label>
-				<input type="text" name="mId" value="${list.mId}" readonly>
-			</div>
-			<div>
-				<label>Password : </label>
-				<input type="password" name="mPw" value="${list.mPw}">
-			</div>
-			<div>
-				<label>Name : </label>
-				<input type="text" name="mName" value="${list.mName}">
-			</div>
-			<div>
-				<label>Age : </label>
-				<input type="number" name="mAge" value="${list.mAge}">
-			</div>
-			<div>
-				<label>Gender : </label>
-				<input type="radio" name="mGender" value="♂" id="mGender" ${list.mGender eq '♂' ? 'checked=checked' : ' '}> 
-				<label for="gender_man"><span>Man</span></label>
-				<input type="radio" name="mGender" value="♀" id="mGender" ${list.mGender eq '♀' ? 'checked=checked' : ' '} >
-				<label for="gender_woman"><span>Woman</span></label>
-			</div>
-			<div>
-				<label>Native Language : </label>
-				<input type="text" name="mNl" value="${list.mNl}">
-			</div>
-			<div>
-				<label>Practice Language : </label>
-				<input type="text" name="mPl" value="${list.mPl}">
-			</div>
-			<div>
-				<label>Hobby : </label>
-				<input type="text" name="mHobby" value="${list.mHobby}">
-			</div>
-			<div>
-				<label>Introduce : </label>
-				<input type="text" name="mIntro" value="${list.mIntro}">
-			</div>
-			<div>
-				<input type="submit" value="변경">
-			</div>
-		</form>
-	</div>
+	      <div>
+	      	<input type="submit" value="Sign Up" class="submitBtn">
+	      </div>
+<!-- 	      <p class="forgot" align="center"><a href="#">Forgot Password?</p> -->
+	    </form>
+    </div>
 </body>
 </html>
