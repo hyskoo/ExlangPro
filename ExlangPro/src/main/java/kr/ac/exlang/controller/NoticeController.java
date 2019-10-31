@@ -48,7 +48,7 @@ public class NoticeController {
 		session.getAttribute("login_pw");
 		
 		List<Notice> list = service.list(pager);
-				
+		
 		model.addAttribute("list",list);
 		
 //		System.out.println(session.getAttribute("auth"));

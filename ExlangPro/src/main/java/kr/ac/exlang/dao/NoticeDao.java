@@ -17,4 +17,6 @@ public interface NoticeDao {
 
 	void delete(int nId);
 
+	int total(Pager pager);
+
 }

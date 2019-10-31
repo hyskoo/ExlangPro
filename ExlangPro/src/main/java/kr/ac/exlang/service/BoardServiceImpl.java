@@ -17,11 +17,10 @@ public class BoardServiceImpl implements BoardService {
 	
 	@Override
 	public List<Board> list(Pager pager) {
+		//Pagination 처리 (total)
 		int total = dao.total(pager);
 		pager.setTotal(total);
-		//페이징 처리용 total
-		
-		
+
 		return dao.list(pager);
 	}
 

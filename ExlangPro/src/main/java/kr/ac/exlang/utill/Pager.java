@@ -27,18 +27,19 @@ public class Pager {
 		}
 		
 //		html형식으로 내용찍기
-		
-		html = "<ul>";	
-		html += "<li><a href='?"+ searchSQL + "page=1'>처음</a></li>";
-		html += "<li><a href='?"+ searchSQL + "page=" + (page <= 1 ? 1 : page - 1) + "'>이전</a></li>";
+		html = "<div class="+"text-center"+">";	
+		html += "<ul class="+"pagination"+">";	
+		html += "<li><a href='?"+ searchSQL + "page=1'> << </a></li>";
+		html += "<li><a href='?"+ searchSQL + "page=" + (page <= 1 ? 1 : page - 1) + "'> < </a></li>";
 		
 		for(int i = startPage; i <= endPage; i++) {
 			html += "<li class='"+ (i == page ? "page_on" : "") +"'><a href='?"+ searchSQL + "page=" + i + "'> " + i + "</a></li>";
 		}
 
-		html += "<li><a href='?"+ searchSQL + "page=" + (page + 1 > maxPage ? maxPage : page+1 ) + "'>다음</a></li>";
-		html += "<li><a href='?"+ searchSQL + "page=" + maxPage + "'>마지막</a></li>";
+		html += "<li><a href='?"+ searchSQL + "page=" + (page + 1 > maxPage ? maxPage : page+1 ) + "'> > </a></li>";
+		html += "<li><a href='?"+ searchSQL + "page=" + maxPage + "'> >> </a></li>";
 		html += "</ul>";
+		html += "</div>";
 		
 		return html;
 	}

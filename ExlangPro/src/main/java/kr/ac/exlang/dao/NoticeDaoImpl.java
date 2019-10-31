@@ -45,4 +45,10 @@ public class NoticeDaoImpl implements NoticeDao {
 		sql.delete("notice.delete", nId);
 	}
 
+	@Override
+	public int total(Pager pager) {
+
+		return sql.selectOne("notice.total", pager);
+	}
+
 }

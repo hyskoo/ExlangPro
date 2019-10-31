@@ -18,6 +18,9 @@ public class NoticeServiceImpl implements NoticeService {
 	
 	@Override
 	public List<Notice> list(Pager pager) {
+		//Pagination 처리 (total)
+		int total = dao.total(pager);
+		pager.setTotal(total);
 
 		return dao.list(pager);
 	}

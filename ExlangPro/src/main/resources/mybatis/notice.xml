@@ -11,11 +11,15 @@
 	</select>
 	
 	<select id="list" resultType="Notice">
-		SELECT n_id, m_id, n_title, n_date
-		FROM notice
-		ORDER BY n_id DESC
+		SELECT *
+		FROM ( SELECT ROWNUM row_num * 
+		FROM ( SELECT * FROM notice
+		ORDER BY n_id DESC))
+		<![CDATA[	
+			WHERE row_num > (#{page}-1)*#{perPage} AND row_num <= #{page}*#{perPage}
+		]]>
 	</select>
-	
+
 	<select id="item" resultType="Notice">
 		SELECT * FROM notice
 		WHERE n_id = #{nId}

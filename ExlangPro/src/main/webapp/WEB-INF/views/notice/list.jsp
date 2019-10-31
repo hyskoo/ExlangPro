@@ -45,7 +45,7 @@
 	</div>
 </div>
 	<div>
-		<table border="1">
+		<table class="table table-hover">
 			<thead>
 				<tr>	
 					<th>게시글번호</th>
@@ -78,15 +78,7 @@
 	
 <!-- 관리자 여부 확인용 C:when대신 C:if를 사용했다 -->
 	<c:if test="${sessionScope.auth != null and sessionScope.auth != 0}">
-		<div><a href="add">등록</a></div>
-		<p>관리자입니다.</p>
-		<p>${sessionScope.auth}</p>
-		<p>${sessionScope.login}</p>
+		<div><a href="add" class="btn btn-default pull-right">등록</a></div>
 	</c:if>
-	<c:if test="${sessionScope.auth eq null or sessionScope.auth eq 0}">
-		<p>회원 또는 로그인X</p>
-		<p>${sessionScope.auth}</p>
-	</c:if>
-	
 </body>
 </html>

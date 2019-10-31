@@ -48,7 +48,7 @@
 		ORDER BY m_age) sub)
 	
 		<![CDATA[	
-		WHERE row_num >= (#{page}-1)*#{perPage} AND row_num <= #{page}*#{perPage}
+			WHERE row_num > (#{page}-1)*#{perPage} AND row_num <= #{page}*#{perPage}
 		]]>
 	</select>		
 
