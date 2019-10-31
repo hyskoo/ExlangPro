@@ -23,6 +23,7 @@ function noSpace(fuc) { //input에서 사용한 태그에서 실행하는 함수
 	}
 }
 
+//유효성 체크
 function check(){	
 	if(jq("#mPw").val() != jq("#mPwcheck").val()){
 		alert("비밀번호가 다릅니다.");
@@ -30,39 +31,51 @@ function check(){
 		return false;
 	} else if (jq('#mImg').val().substring(33,100).length > 19) {
 		alert("파일명은 16글자 이하만 가능합니다");
+		mImg.focus();
 		return false;
 	} else if (jq("#mId").val() == "") {
 		alert("아이디를 입력해주세요");
+		mId.focus();
 		return false;
 	} else if (jq("#mPw").val() == "") {
 		alert("비밀번호를 입력해주세요");
+		mPw.focus();
 		return false;
 	} else if (jq("#mPwcheck").val() == "") {
 		alert("비밀번호 확인을 입력해주세요");
+		mPwcheck.focus();
 		return false;
 	} else if (jq("#mName").val() == "") {
 		alert("이름을 입력해주세요");
+		mName.focus();
 		return false;
 	} else if (jq("#mAge").val() == "") {
 		alert("나이를 입력해주세요");
+		mAge.focus();
 		return false;
 	} else if (jq(':radio[name="mGender"]:checked').length < 1) {
 		alert("성별을 선택해주세요");
+		mGendar.focus();
 		return false;
 	} else if (jq("#mNl").val() == "") {
-		alert(jq("#mGender").val());
 		alert("모국어를 입력해주세요");
+		mNl.focus();
 		return false;
 	} else if (jq("#mPl").val() == "") {
 		alert("배울언어를 입력해주세요");
+		mPl.focus();
 		return false;
 	}  else if (jq("#mHobby").val() == "") {
 		alert("취미를 입력해주세요");
+		mHobby.focus();
 		return false;
 	}  else if (jq("#mIntro").val() == "") {
 		alert("자기소개를 입력해주세요");
+		mIntro.focus();
 		return false;
-	} 
+	} else {
+		alert("Update Your Profile");
+	}
 }
 
 jq(function(){
@@ -150,14 +163,48 @@ function PreviewFile(e) {
 					<input type="radio" name="mGender" value="♀" id="mGender" ${list.mGender eq '♀' ? 'checked=checked' : ' '}>
 					<label for="gender_woman"><span>Woman</span></label>		
 				</div>
+
+				<h3 align="center" style="margin-bottom: 10px">Native Language</h3>
+				<select name="mNl" id="mNl" class="signInput">
+					<option value="English" <c:if test="${list.mNl == 'English'}">selected='selected'</c:if>>English</option>
+					<option value="Chinese" <c:if test="${list.mNl == 'Chinese'}">selected='selected'</c:if>>Chinese</option>
+					<option value="Hindi" <c:if test="${list.mNl == 'Hindi'}">selected='selected'</c:if>>Hindi</option>
+					<option value="Spanish" <c:if test="${list.mNl == 'Spanish'}">selected='selected'</c:if>>Spanish</option>
+					<option value="French" <c:if test="${list.mNl == 'French'}">selected='selected'</c:if>>French</option>
+					<option value="Arabic" <c:if test="${list.mNl == 'Arabic'}">selected='selected'</c:if>>Arabic</option>
+					<option value="Bengali" <c:if test="${list.mNl == 'Bengali'}">selected='selected'</c:if>>Bengali</option>
+					<option value="Russain" <c:if test="${list.mNl == 'Russain'}">selected='selected'</c:if>>Russain</option>
+					<option value="Portuguese" <c:if test="${list.mNl == 'Portuguese'}">selected='selected'</c:if>>Portuguese</option>
+					<option value="German" <c:if test="${list.mNl == 'German'}">selected='selected'</c:if>>German</option>
+					<option value="Japanese" <c:if test="${list.mNl == 'Japanese'}">selected='selected'</c:if>>Japanese</option>
+					<option value="Italian" <c:if test="${list.mNl == 'Italian'}">selected='selected'</c:if>>Italian</option>
+					<option value="Thai" <c:if test="${list.mNl == 'Thai'}">selected='selected'</c:if>>Thai</option>
+					<option value="Turkish" <c:if test="${list.mNl == 'Turkish'}">selected='selected'</c:if>>Turkish</option>
+					<option value="Korean" <c:if test="${list.mNl == 'Korean'}">selected='selected'</c:if>>Korean</option>
+				</select>
 				
-				<input class="signInput" align="center" type="text" name="mNl" id="mNl" placeholder="Native Language" value="${list.mNl}">
-			
-				<input class="signInput" align="center" type="text" name="mPl" id="mPl"  placeholder="Practice Language" value="${list.mPl}">
+				<h3 align="center" style="margin-bottom: 10px">Practice Language</h3>
+				<select name="mPl" id="mPl" class="signInput">
+					<option value="English" <c:if test="${list.mPl == 'English'}">selected='selected'</c:if>>English</option>
+					<option value="Chinese" <c:if test="${list.mPl == 'Chinese'}">selected='selected'</c:if>>Chinese</option>
+					<option value="Hindi" <c:if test="${list.mPl == 'Hindi'}">selected='selected'</c:if>>Hindi</option>
+					<option value="Spanish" <c:if test="${list.mPl == 'Spanish'}">selected='selected'</c:if>>Spanish</option>
+					<option value="French" <c:if test="${list.mPl == 'French'}">selected='selected'</c:if>>French</option>
+					<option value="Arabic" <c:if test="${list.mPl == 'Arabic'}">selected='selected'</c:if>>Arabic</option>
+					<option value="Bengali" <c:if test="${list.mPl == 'Bengali'}">selected='selected'</c:if>>Bengali</option>
+					<option value="Russain" <c:if test="${list.mPl == 'Russain'}">selected='selected'</c:if>>Russain</option>
+					<option value="Portuguese" <c:if test="${list.mPl == 'Portuguese'}">selected='selected'</c:if>>Portuguese</option>
+					<option value="German" <c:if test="${list.mPl == 'German'}">selected='selected'</c:if>>German</option>
+					<option value="Japanese" <c:if test="${list.mPl == 'Japanese'}">selected='selected'</c:if>>Japanese</option>
+					<option value="Italian" <c:if test="${list.mPl == 'Italian'}">selected='selected'</c:if>>Italian</option>
+					<option value="Thai" <c:if test="${list.mPl == 'Thai'}">selected='selected'</c:if>>Thai</option>
+					<option value="Turkish" <c:if test="${list.mPl == 'Turkish'}">selected='selected'</c:if>>Turkish</option>
+					<option value="Korean" <c:if test="${list.mPl == 'Korean'}">selected='selected'</c:if>>Korean</option>
+				</select>
 				
 				<input class="signInput" align="center" type="text" name="mHobby" id="mHobby"  placeholder="Hobby" value="${list.mHobby}">
 				
-				<input class="signInput" align="center" type="text" name="mIntro" id="mIntro"  placeholder="Plase Write Your Introduce" value="${list.mIntro}">
+				<textarea class="signInput" align="center" type="text" name="mIntro" id="mIntro" placeholder="Plase Write Your Introduce" rows="" cols="" >${list.mIntro}</textarea>
 			<div>
 				<div class="imageupload">
 					<input id="upload" type="file">

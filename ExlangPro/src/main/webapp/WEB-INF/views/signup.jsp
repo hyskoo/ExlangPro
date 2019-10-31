@@ -27,49 +27,66 @@ function noSpace(fuc) { //input에서 사용한 태그에서 실행하는 함수
 
 
 
+
 //회원가입 유효성 검사
 function check(){	
 	if(jq("#mPw").val() != jq("#mPwcheck").val()){
 		alert("비밀번호가 다릅니다.");
 		mPwcheck.focus();
 		return false;
+	} else if (jq('#mImg').val().substring(33,100).length > 19) {
+		alert("파일명은 16글자 이하만 가능합니다");
+		mImg.focus();
+		return false;
 	} else if (jq("#mId").val() == "") {
 		alert("아이디를 입력해주세요");
+		mId.focus();
 		return false;
 	} else if (jq("#mPw").val() == "") {
 		alert("비밀번호를 입력해주세요");
+		mPw.focus();
 		return false;
 	} else if (jq("#mPwcheck").val() == "") {
 		alert("비밀번호 확인을 입력해주세요");
+		mPwcheck.focus();
 		return false;
 	} else if (jq("#mName").val() == "") {
 		alert("이름을 입력해주세요");
+		mName.focus();
 		return false;
 	} else if (jq("#mAge").val() == "") {
 		alert("나이를 입력해주세요");
+		mAge.focus();
 		return false;
 	} else if (jq(':radio[name="mGender"]:checked').length < 1) {
 		alert("성별을 선택해주세요");
+		mGendar.focus();
 		return false;
 	} else if (jq("#mNl").val() == "") {
-		alert(jq("#mGender").val());
 		alert("모국어를 입력해주세요");
+		mNl.focus();
 		return false;
 	} else if (jq("#mPl").val() == "") {
 		alert("배울언어를 입력해주세요");
+		mPl.focus();
 		return false;
 	}  else if (jq("#mHobby").val() == "") {
 		alert("취미를 입력해주세요");
+		mHobby.focus();
 		return false;
 	}  else if (jq("#mIntro").val() == "") {
 		alert("자기소개를 입력해주세요");
+		mIntro.focus();
 		return false;
-	} 
+	} else {
+		alert("Sign Up!");
+	}
 }
 
 
-
 jq(function() {
+
+	
 	// 아이디 중복체크 확인
 	jq("#mId").blur(function(event){	
 		event.preventDefault();  // 이벤트 초기화
@@ -193,7 +210,7 @@ function PreviewFile(e) {
 		    	<input class="signInput" align="center" type="text" name="mId" id="mId" minlength="4" maxlength="10" onkeyup="noSpace(this);" placeholder="UserID">
 				<div id="id_check" align="center"></div>
 			
-				<input class="signInput" align="center" type="text" name =mPw id="mPw" minlength="4" maxlength="12" onkeyup="noSpace(this);" placeholder="PassWord" >
+				<input class="signInput" align="center" type="password" name =mPw id="mPw" minlength="4" maxlength="12" onkeyup="noSpace(this);" placeholder="PassWord" >
 			
 				<input class="signInput" align="center" type="password" name =mPwcheck id="mPwcheck" maxlength="12" onkeyup="noSpace(this);" placeholder="PassWordCheck" >						
 	      	
@@ -207,13 +224,47 @@ function PreviewFile(e) {
 					<label for="gender_woman"><span>Woman</span></label>		
 				</div>
 				
-				<input class="signInput" align="center" type="text" name="mNl" id="mNl" placeholder="Native Language">
+				<h3 align="center" style="margin-bottom: 10px">Native Language</h3>
+				<select name="mNl" id="mNl" class="signInput">
+					<option value="English">English</option>
+					<option value="Chinese">Chinese</option>
+					<option value="Hindi">Hindi</option>
+					<option value="Spanish">Spanish</option>
+					<option value="French">French</option>
+					<option value="Arabic">Arabic</option>
+					<option value="Bengali">Bengali</option>
+					<option value="Russain">Russain</option>
+					<option value="Portuguese">Portuguese</option>
+					<option value="German">German</option>
+					<option value="Japanese">Japanese</option>
+					<option value="Italian">Italian</option>
+					<option value="Thai">Thai</option>
+					<option value="Turkish">Turkish</option>
+					<option value="Korean">Korean</option>
+				</select>
 			
-				<input class="signInput" align="center" type="text" name="mPl" id="mPl"  placeholder="Practice Language">
+				<h3 align="center" style="margin-bottom: 10px">Practice Language</h3>
+				<select name="mPl" id="mPl" class="signInput">
+					<option value="English">English</option>
+					<option value="Chinese">Chinese</option>
+					<option value="Hindi">Hindi</option>
+					<option value="Spanish">Spanish</option>
+					<option value="French">French</option>
+					<option value="Arabic">Arabic</option>
+					<option value="Bengali">Bengali</option>
+					<option value="Russain">Russain</option>
+					<option value="Portuguese">Portuguese</option>
+					<option value="German">German</option>
+					<option value="Japanese">Japanese</option>
+					<option value="Italian">Italian</option>
+					<option value="Thai">Thai</option>
+					<option value="Turkish">Turkish</option>
+					<option value="Korean">Korean</option>
+				</select>
 				
 				<input class="signInput" align="center" type="text" name="mHobby" id="mHobby"  placeholder="Hobby">
 				
-				<input class="signInput" align="center" type="text" name="mIntro" id="mIntro"  placeholder="Plase Write Your Introduce">
+				<textarea class="signInput" align="center" type="text" name="mIntro" id="mIntro" placeholder="Plase Write Your Introduce" rows="" cols="" ></textarea>
 			<div>
 				<div class="imageupload">
 					<input id="upload" type="file">

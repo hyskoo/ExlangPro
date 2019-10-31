@@ -49,16 +49,24 @@
 </div>
 <div id="page" class="container">
 	<div class="title">
-		<h2>Maecenas luctus lectus</h2>	
+		<h2>Maecenas luctus lectus</h2>
+		
 	</div>
 	<c:choose>
 		<c:when test="${list.size() > 0 }">
 			<c:forEach var="item" items="${list}">
 				<div class="box">
-					<img src="<spring:url value='/upload/signup/${item.mImg}'/>" width="320" height="180" alt="" />		
-					<h3>${item.mName}</h3>
-					<p id="indexIntro">${item.mIntro}</p>
-					<a href="../" class="button">Read More</a>
+					<c:if test="${item.mAuth == 0}">	
+						<c:if test="${item.mImg == '' or item.mImg == null}">
+							<img src="/resources/image/ProfileDefault.jpg" width="320" height="180" alt="기본이미지" >
+						</c:if>
+						<c:if test="${item.mImg != null}">
+							<img src="<spring:url value='/upload/signup/${item.mImg}'/>" width="320" height="180" alt="기본이미지" />
+						</c:if>
+						<h3>${item.mName}</h3>
+						<p id="indexIntro">${item.mIntro}</p>
+						<a href="../" class="button">Read More</a>
+					</c:if>
 				</div>				
 			</c:forEach>
 		</c:when>
@@ -73,23 +81,5 @@
 	<p>&copy; Untitled. All rights reserved. | Photos by <a href="http://fotogrph.com/">Fotogrph</a> | Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
 </div>
 
-	<div>
-		<a href="/notice/list">공지사항</a>
-		<a href="/board/list">프로필 게시판</a>
-		<a href="/board/InformationUse">이용안내</a>
-		<c:choose>
-			<c:when test="${sessionScope.login_id eq null}">
-				<a href="/login">로그인</a>
-				<a href="/signup">회원가입</a>
-			</c:when>
-			<c:otherwise>
-				<a href="/member/update?mId=${sessionScope.login_id}">MyPage</a>
-				<a href="/logout">로그아웃</a>
-			</c:otherwise>
-		</c:choose>
-	</div>
-	<div>
-		
-	</div>
 </body>
 </html>

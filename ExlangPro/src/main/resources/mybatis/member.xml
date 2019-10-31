@@ -41,13 +41,17 @@
 	</select>
 	
 	<select id="indexlist" resultType="Member">
+	SELECT * 
+	FROM
+	( 
 		SELECT *
 		FROM member
-		
-		<![CDATA[
-		WHERE ROWNUM <= 10 AND m_pl = 'Korean'
-		]]>
-		
+		WHERE m_auth = '0'
+		ORDER BY ROWNUM DESC
+	)
+	<![CDATA[
+		WHERE ROWNUM <= 6
+	]]>
 	</select>
 
 	
