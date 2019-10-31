@@ -12,9 +12,9 @@
 	
 	<select id="list" resultType="Notice">
 		SELECT *
-		FROM ( SELECT ROWNUM row_num * 
+		FROM ( SELECT ROWNUM row_num, sub.* 
 		FROM ( SELECT * FROM notice
-		ORDER BY n_id DESC))
+		ORDER BY n_id DESC) sub)
 		<![CDATA[	
 			WHERE row_num > (#{page}-1)*#{perPage} AND row_num <= #{page}*#{perPage}
 		]]>
