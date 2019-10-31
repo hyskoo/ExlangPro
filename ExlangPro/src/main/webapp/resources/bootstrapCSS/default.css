@@ -7,7 +7,6 @@
 	{
 		margin: 0px;
 		padding: 0px;
-		background: url(/resources/image/김명중.jpg) no-repeat center top;
 		font-family: 'Source Sans Pro', sans-serif;
 		font-size: 12pt;
 		font-weight: 300;
@@ -83,7 +82,7 @@
 }	
 
 .indexBody {
-	background-color : lightblue;
+	background-color : #cbf2f7;
 }
 /*********************************************************************************/
 /* Image Style                                                                   */
@@ -269,10 +268,13 @@
 
 	#header-wrapper
 	{
+		padding : 0px;
 		overflow: hidden;
 		height: 40em;
+		background: url(/resources/image/WorldMap.jpg) no-repeat center top / cover;
+		background-size: 1140px;
 	}
-
+	
 	#header
 	{
 		position: relative;

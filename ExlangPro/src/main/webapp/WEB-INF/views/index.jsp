@@ -22,7 +22,7 @@
 
 </script>
 <body class="indexBody">
-<div id="header-wrapper">
+<div id="header-wrapper" class="container">
 	<div id="header" class="container">
 		<div id="logo">
 			<h1><a href="../">Exlang</a></h1>
@@ -42,7 +42,6 @@
 						<li><a href="/logout">로그아웃</a></li>
 					</c:otherwise>
 				</c:choose>
-				
 			</ul>
 		</div>
 	</div>
@@ -50,7 +49,6 @@
 <div id="page" class="container">
 	<div class="title">
 		<h2>Maecenas luctus lectus</h2>
-		
 	</div>
 	<c:choose>
 		<c:when test="${list.size() > 0 }">
