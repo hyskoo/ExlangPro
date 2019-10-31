@@ -8,7 +8,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<link rel="stylesheet" type="text/css" href="/resources/common.css">
 <!-- BootStrap Templet -->
 <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
 <link href="/resources/bootstrapCSS/default.css" rel="stylesheet" type="text/css" media="all" />
