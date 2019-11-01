@@ -1,0 +1,126 @@
+@charset "UTF-8";
+
+* {
+	margin:0; 
+	padding:0;
+}
+
+/*********************************************************************************/
+/* Table CSS                                                                     */
+/*********************************************************************************/	
+table {
+    border-collapse: collapse;
+}
+.table_notice {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+}
+.table_notice thead th {
+    vertical-align: middle;
+    background-color: #fff;
+}
+
+.table_notice td, .table_notice th {
+    padding: 0.7rem;
+    vertical-align: middle;
+}
+.table_notice td {
+	
+}
+.table_notice th {
+	text-align : center;
+	border : 3px solid black;
+}
+.table_notice td {
+	border : 3px solid black;
+}
+.number_notice_list {
+	width: 10%;
+}
+.title_notice_list {
+	cursor: pointer;
+}
+.title_notice_list:hover {
+	background-color : #f40;
+}
+.writer_notice_list {
+	width: 10%;
+    text-align: center;
+}
+.date_notice_list {
+    width: 10%;
+    text-align: center;
+}
+
+/*********************************************************************************/
+/* Paging CSS                                                                      */
+/*********************************************************************************/	
+#page_notice_list
+{
+	overflow: hidden;
+	width: 1140px;
+	padding: 1em 30px;
+	background: lightskyblue;
+}
+
+.page_on {
+	background-color: #f40;
+}
+
+.pager_ul {
+	margin-top: 2em;
+	text-align:center;
+}
+.pager_ul li {
+	display:inline;
+	vertical-align:middle;
+}
+.pager_ul li a {
+	display:-moz-inline-stack;	/*FF2*/
+	display:inline-block;
+	vertical-align: center;
+	padding:4px;
+	width:50px !important;
+	height: auto;
+	color:#000;
+	font:bold 12px tahoma;
+	border:1px solid #eee;
+	text-align:center;
+	text-decoration:none;
+	width /**/:26px;	/*IE 5.5*/
+
+}
+
+.pager_ul li:hover {
+	color:#fff;
+	border:1px solid #f40;
+	background-color: #f40;
+}
+
+/*********************************************************************************/
+/* Write Buttom CSS                                                              */
+/*********************************************************************************/	
+.btn_div_notice{
+	text-align: right;
+	margin-buttom : 5px;
+}
+.btn_notice{
+	width: 10%;
+	height: 30px;
+    background-color: #3288e7;
+    border: none;
+    color:#fff;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    cursor: pointer;
+    border : 1px solid black;
+	border-radius: 10px;
+	margin: 4px;
+    padding: 2px 0;
+}
+.btn_notice:hover {
+	background-color: #f40;
+}

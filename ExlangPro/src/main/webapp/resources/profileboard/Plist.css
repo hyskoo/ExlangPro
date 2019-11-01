@@ -1,0 +1,184 @@
+@charset "UTF-8";
+
+* {
+	margin:0; 
+	padding:0;
+}
+
+/*********************************************************************************/
+/* Table CSS                                                                     */
+/*********************************************************************************/	
+table {
+    border-collapse: collapse;
+}
+#profile_main{
+	padding : 0 ! important;
+	margin-top: 1em;
+    margin-bottom: 3em;
+}
+
+.P_list_image{
+	width : 16%;
+}
+.P_list_name{
+	width : 15%;
+}
+.P_list_Nl {
+	font-size:20pt;
+	font-weight: 700;
+	text-align:center;
+	width: 12%;
+}
+.P_list_Pl {
+	font-size:20pt;
+	font-weight: 700;
+	text-align:center;
+	width: 12%;
+}
+.P_list_Hobby {
+	font-size: 13pt;
+	text-align: center;
+	width: 10%;
+}
+.P_list_Intro {
+	
+}
+.P_list_Intro p{
+	display: inline-block;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	width: 101%;
+	height: 325px;
+	white-space:pre-wrap;
+	line-height: 1.2;
+	height: 17.6em;
+	text-align: left;
+	word-wrap: break-word;
+	display: -webkit-box;
+	-webkit-line-clamp: 10;
+	-webkit-box-orient: vertical;
+	margin-bottom : 0px; ! important;
+}
+.age_gender {
+	font-size:20pt;
+	font-weight: 700;
+	word-spacing: 40px;
+}
+
+.table_profile {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+}
+.table_profile thead th {
+    vertical-align: middle;
+    background-color: #fff;
+}
+
+.table_profile td, .table_profile th {
+    padding: 0.7rem;
+    vertical-align: middle;
+}
+.table_profile td {
+	
+}
+.table_profile th {
+	text-align : center;
+	border : 3px solid black;
+}
+.table_profile td {
+	border : 3px solid black;
+}
+.number_profile_list {
+	width: 10%;
+}
+.title_profile_list {
+	cursor: pointer;
+}
+.title_profile_list:hover {
+	background-color : #f40;
+}
+.writer_profile_list {
+	width: 10%;
+    text-align: center;
+}
+.date_profile_list {
+    width: 10%;
+    text-align: center;
+}
+
+/*********************************************************************************/
+/* Search CSS                                                                    */
+/*********************************************************************************/
+select {
+    width: 100%;
+    height: 35px;
+    font-weight: 600;
+}
+input {
+    overflow: visible;
+    width: 100%;
+}
+#search {
+	width: 20%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto
+}
+.Search_name {
+	font-weight: 700;
+	width:15%;
+}
+.Search_selecter {
+	width: 50%;
+}
+
+.submit_search {
+	text-align : center;
+}
+
+/*********************************************************************************/
+/* Paging CSS                                                                    */
+/*********************************************************************************/	
+#page_profile_list
+{
+	overflow: hidden;
+	width: 1140px;
+	padding: 1em 30px;
+	background: lightskyblue;
+}
+
+.page_on {
+	background-color: #f40;
+}
+
+.pager_ul {
+	margin-top: 2em;
+	text-align:center;
+}
+.pager_ul li {
+	background-color: lightskyblue;
+	display:inline;
+	vertical-align:middle;
+}
+.pager_ul li a {
+	display:-moz-inline-stack;	/*FF2*/
+	display:inline-block;
+	vertical-align: center;
+	padding:4px;
+	width:50px !important;
+	height: auto;
+	color:#000;
+	font:bold 12px tahoma;
+	border:1px solid #eee;
+	text-align:center;
+	text-decoration:none;
+	width /**/:26px;	/*IE 5.5*/
+}
+
+.pager_ul li:hover {
+	color:#fff;
+	border:1px solid #f40;
+	background-color: #f40;
+}

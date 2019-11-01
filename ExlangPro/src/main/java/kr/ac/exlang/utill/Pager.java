@@ -28,7 +28,7 @@ public class Pager {
 		
 //		html형식으로 내용찍기
 		html = "<div class="+"text-center"+">";	
-		html += "<ul class="+"pagination"+">";	
+		html += "<ul class="+"pager_ul"+">";
 		html += "<li><a href='?"+ searchSQL + "page=1'> << </a></li>";
 		html += "<li><a href='?"+ searchSQL + "page=" + (page <= 1 ? 1 : page - 1) + "'> < </a></li>";
 		

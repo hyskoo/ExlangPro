@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Notice</title>
 </head>
+<link rel="stylesheet" type="text/css" href="/resources/notice/Nlist.css">
 <!-- BootStrap Templet -->
 <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
 <link href="/resources/bootstrapCSS/default.css" rel="stylesheet" type="text/css" media="all" />
@@ -44,41 +46,47 @@
 		</div>
 	</div>
 </div>
-	<div>
-		<table class="table table-hover">
-			<thead>
-				<tr>	
-					<th>게시글번호</th>
-					<th>제목</th>
-					<th>작성자</th>
-					<th>날짜</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:choose>
-					<c:when test="${list.size() > 0}">
-						<c:forEach var="item" items="${list}">
-							<tr>
-								<td>${item.nId}</td>
-								<td><a href="view?nId=${item.nId}">${item.nTitle}</a></td>
-								<td>${item.mId}</td>
-								<td>${item.nDate}</td>
-							</tr>
-						</c:forEach>
-					</c:when>
-					<c:otherwise>
-						등록된 내용이 없습니다.
-					</c:otherwise>
-				</c:choose>
-			</tbody>
-		</table>
-<!--  페이징처리 -->
-		<div>${pager.paging}</div>
-	</div>
-	
+<div class="container" id="page_notice_list">
 <!-- 관리자 여부 확인용 C:when대신 C:if를 사용했다 -->
 	<c:if test="${sessionScope.auth != null and sessionScope.auth != 0}">
-		<div><a href="add" class="btn btn-default pull-right">등록</a></div>
+		<div class="btn_div_notice"><a href="add" class="btn_notice">Writing</a></div>
 	</c:if>
+	<table class="table_notice" >
+		<thead>
+			<tr>	
+				<th>게시글번호</th>
+				<th>제목</th>
+				<th>작성자</th>
+				<th>날짜</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:choose>
+				<c:when test="${list.size() > 0}">
+					<c:forEach var="item" items="${list}">
+						<tr>
+							<td class="number_notice_list">${item.nId}</td>
+							<td class="title_notice_list" onclick="location.href='view?nId=${item.nId}'">${item.nTitle}</td>
+							<td class="writer_notice_list">${item.mId}</td>
+							<td class="date_notice_list"><fmt:formatDate value="${item.nDate}" pattern="yyyy-MM-dd"/></td>
+						</tr>
+					</c:forEach>
+				</c:when>
+				<c:otherwise>
+					등록된 내용이 없습니다.
+				</c:otherwise>
+			</c:choose>
+		</tbody>
+	</table>
+<!-- Paging -->
+	<div>${pager.paging}</div>
+</div>
+<div id="footer" class="container">
+	<h2>Copyright © 2018-2019 Exlang.com</h2>
+	<p>Featuring 15 languages, including...</p>	
+	<hr size="1" width="100%" align="center" noshade>
+	<p> English Spanish French Italian German Japanese Swedish Greek Arabic <p>
+	<p> Korean Chinese Russian Thai <p>
+</div>
 </body>
 </html>

@@ -21,7 +21,7 @@ public class NoticeServiceImpl implements NoticeService {
 		//Pagination 처리 (total)
 		int total = dao.total(pager);
 		pager.setTotal(total);
-
+		
 		return dao.list(pager);
 	}
 
@@ -33,13 +33,7 @@ public class NoticeServiceImpl implements NoticeService {
 
 	@Override
 	public void update(Notice notice) {
-//		String mid = notice.getmId();
-//		int nid = notice.getnId();
-//		Date date = notice.getnDate();
-//		
-//		System.out.println(mid);
-//		System.out.println(nid);
-//		System.out.println(date);
+
 		dao.update(notice);
 	}
 

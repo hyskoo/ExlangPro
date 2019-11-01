@@ -86,7 +86,8 @@ public class NoticeController {
 			ObjectMapper mapper = new ObjectMapper(); String json2 = ""; 
 			Map<String, Object> map2 = new HashMap<String, Object>();
 			map2.put("result", "true"); 
-			map2.put("url", "${pageContext.request.contextPath}d://upload/notice/" + fileupload.getFilename()); 
+			map2.put("url", "/upload/notice/" + fileupload.getFilename()); 
+			//데이터를 넘길때 servlet-context에서 upload로 잡혀있으므로 파일경로를 위와같이 잡아줘야한다.
 			
 			json2 = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(map2);
 			json2 = mapper.writeValueAsString(map2);
@@ -105,7 +106,7 @@ public class NoticeController {
 	
 	
 	@RequestMapping("/view")
-	String view(int nId, Model model) {
+	String view(int nId, Model model, Pager pager) {
 		
 		Notice notice = service.item(nId);
 		

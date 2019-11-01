@@ -61,10 +61,6 @@
 /* Custom Setting                                                                */
 /*********************************************************************************/	
 
-.page_on {
-	background-color: blue;
-}
-
 #indexIntro {
 	/* 한 줄로 자르기 */
 	width        : 320px;     /* 너비는 변경될수 있습니다. */
@@ -75,13 +71,13 @@
 	
 	
 	/* 2개이상으로 줄 자르기*/
-	height		 : 3.6em;
+	height		 : 10.6em;
 	white-space: normal;
 	line-height: 1.2;
  	text-align: left; 
  	word-wrap: break-word; /* 잘라버릴 글자를 단어 단위로 */
  	display: -webkit-box; /* 여백 삽입과 같이 유연한 높이 증가를 위해 플렉스 박스형태로 변환 */
- 	-webkit-line-clamp: 3; /* 보여줄 줄 갯수 */
+ 	-webkit-line-clamp: 5; /* 보여줄 줄 갯수 */
  	-webkit-box-orient: vertical; /* 플렉스 박스의 방향 설정 */
 }	
 
@@ -282,7 +278,6 @@
 	#header
 	{
 		position: relative;
-		margin-top: 0.5em;
 		padding: 3em 0em;
 		background: lightskyblue;
 	}
@@ -352,27 +347,6 @@
 	}
 
 /*********************************************************************************/
-/* Welcome                                                                       */
-/*********************************************************************************/
-
-	#welcome
-	{
-		overflow: hidden;
-		width: 1140px;
-		margin-top: 3em;
-		padding: 5em 40px;
-		background: lightskyblue;
-	}
-
-	
-	#welcome h2
-	{
-		padding-bottom: 1em;
-		font-size: 1.8em;
-		font-weight: 400;
-	}
-
-/*********************************************************************************/
 /* Page                                                                          */
 /*********************************************************************************/
 
@@ -396,7 +370,7 @@
 	
 	#page .box
 	{
-		margin-bottom: 4em;
+		margin-bottom: 1em;
 	}
 	
 	#page img
@@ -451,10 +425,17 @@
 	#footer
 	{
 		overflow: hidden;
-		padding: 5em 0em 3em 0em;
-		border-top: 1px solid rgba(0,0,0,0.08);
+		width: 1140px;
+		margin-top: 3em;
+		text-align: center;
 	}
 	
+	#footer h2
+	{
+		padding-bottom: 1em;
+		font-size: 1.8em;
+		font-weight: 400;
+	}
 
 /*********************************************************************************/
 /* Copyright                                                                     */

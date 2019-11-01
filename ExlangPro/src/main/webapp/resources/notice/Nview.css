@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+* {
+	margin:0; 
+	padding:0;
+}
+
+/*********************************************************************************/
+/* Container, main CSS                                                                     */
+/*********************************************************************************/
+.container {
+	padding-left : 0px ! important;
+	padding-right : 0px ! important;
+}	
+#Notice_view {
+	text-align : center;
+	background-color: mintcream;
+}
+#Notice_view h1 {
+	font-size : 4.5em;
+}
+#Notice_view .view_mId {
+	font-size : 16pt;
+	font-weight : 700;
+	margin-right : 20px;
+	color: gray;
+}
+#Notice_view #nTitle {
+	font-size : 20pt;
+	font-weight: 500;
+	margin-left: 20px;
+}
+.view_head {
+	margin: 16px 0 29px;
+    padding-bottom: 11px;
+    border-bottom: 3px solid #eee;
+}
+/*********************************************************************************/
+/* Write Buttom CSS                                                              */
+/*********************************************************************************/	
+.btn_div_notice{
+	text-align: right;
+	margin-buttom : 5px;
+}
+.btn_notice{
+	width: 10%;
+	height: 30px;
+    background-color: #3288e7;
+    border: none;
+    color:#fff;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    cursor: pointer;
+    border : 1px solid black;
+	border-radius: 10px;
+	margin: 4px;
+    padding: 2px 0;
+}
+.btn_notice:hover {
+	background-color: #f40;
+}

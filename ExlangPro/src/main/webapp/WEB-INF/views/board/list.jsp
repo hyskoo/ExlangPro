@@ -10,6 +10,7 @@
 <meta charset="UTF-8">
 <title>Profile Board</title>
 </head>
+<link rel="stylesheet" type="text/css" href="/resources/profileboard/Plist.css">
 <!-- BootStrap Templet -->
 <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
 <link href="/resources/bootstrapCSS/default.css" rel="stylesheet" type="text/css" media="all" />
@@ -57,14 +58,11 @@ function profile(){
 			</ul>
 		</div>
 	</div>
-	<div>
-		<table>
+	<div class="container" id="profile_main">
+		<table class="table_profile">
 			<thead>
 				<tr>
 					<th>프로필사진</th>
-					<th>회원명</th>
-					<th>나이</th>
-					<th>성별</th>
 					<th>모국어</th>
 					<th>연습언어</th>
 					<th>취미</th>
@@ -77,15 +75,20 @@ function profile(){
 						<c:forEach var="item" items="${list}">
 							<tr>
 								<c:if test="${item.mAuth == 0}">
-									<td><img src="<spring:url value='/upload/signup/${item.mImg}'/>" /></td>
-									<td>${item.mName}</td>
-									<td>${item.mAge}</td>
-									<td>${item.mGender}</td>
-									<td>${item.mNl}</td>
-									<td>${item.mPl}</td>
-									<td>${item.mHobby}</td>
-									<td>${item.mIntro}</td>
-									<td>${item.mAuth}</td>
+									<td class="P_list_image">
+										<c:if test="${item.mImg == '' or item.mImg == null}">
+											<img src="/resources/image/ProfileDefault.jpg"  width="320px" height="180"  alt="기본이미지" >
+										</c:if>
+										<c:if test="${item.mImg != null}">
+											<img src="<spring:url value='/upload/signup/${item.mImg}'/>"  width="320px" height="180"  alt="기본이미지" />
+										</c:if>
+										<h1>${item.mName}</h1>
+										<p class="age_gender">Age:${item.mAge}  Gender:${item.mGender}</p>
+									</td>
+									<td class="P_list_Nl">${item.mNl}</td>
+									<td class="P_list_Pl">${item.mPl}</td>
+									<td class="P_list_Hobby">${item.mHobby}</td>
+									<td class="P_list_Intro"><p>${item.mIntro}</p></td>
 								</c:if>
 							</tr>
 						</c:forEach>
@@ -102,13 +105,13 @@ function profile(){
 
 <!-- 검색기능 -->
 <!-- 쿼리문에 직접적으로 하는것이므로 카멜케이스 사용X  -->
-	<div>
+	<div id="search">
 		<form action="" method="get" onsubmit="return profile();">
-			<table>
-				<th> Find New Friends!!!</th>
+			<table class="table_profile table_search">
+				<th colspan="2"> Find New Friends!!!</th>
 					<tr>
-						<td>Native Language</td>
-						<td>
+						<td class="Search_name">Native Language</td>
+						<td class="Search_selecter">
 							<select name="SearchNl">
 								<option value="">- All -</option>
 								<option value="English">English</option>
@@ -130,8 +133,8 @@ function profile(){
 						</td>
 					</tr>
 					<tr>
-						<td>Practice Language</td>
-						<td>
+						<td class="Search_name">Practice Language</td>
+						<td class="Search_selecter">
 							<select name="SearchPl">
 								<option value="">- All -</option>
 								<option value="English">English</option>
@@ -153,8 +156,8 @@ function profile(){
 						</td>
 					</tr>
 					<tr>
-						<td>Gender</td>
-						<td>
+						<td class="Search_name">Gender</td>
+						<td class="Search_selecter">
 							<select name="SearchGender">
 								<option value="">- All -</option>
 								<option value="♂">Male</option>
@@ -163,30 +166,37 @@ function profile(){
 						</td>
 					</tr>
 					<tr>
-						<td>Age</td>
+						<td class="Search_name">Age</td>
 						<td>
 							From : <input name="SearchAgeMin" type="number" min="0" placeholder="Optional">
 							To : <input name="SearchAgeMax" type="number" min="0" placeholder="Optional">
 						</td>
 					</tr>
 					<tr>
-						<td>Hobby</td>
-						<td>
+						<td class="Search_name">Hobby</td>
+						<td class="Search_selecter">
 							<input name="SearchHobby" type="text">
 						</td>
 					</tr>
 					<tr>
-						<td>User Name</td>
-						<td>
+						<td class="Search_name">User Name</td>
+						<td class="Search_selecter">
 							<input name="SearchUserName" type="text">
 						</td>
 					</tr>
-
-					<tr><td><input type="submit" value="검색"></td></tr>
+					<tr class="submit_search">
+						<td colspan="2"><input type="submit" value="검색"></td>
+					</tr>
 			</table>
 		</form>
 	</div>
-
-<div><a href="../">돌아가기</a></div>
+<div id="footer" class="container">
+	<h2>Copyright © 2018-2019 Exlang.com</h2>
+	<p>Featuring 15 languages, including...</p>	
+	<hr size="1" width="100%" align="center" noshade>
+	<p> English Spanish French Italian German Japanese Swedish Greek Arabic <p>
+	<p> Korean Chinese Russian Thai <p>
+</div>
+	
 </body>
 </html>
