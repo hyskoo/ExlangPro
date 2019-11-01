@@ -9,7 +9,6 @@ public class Member {
 	String mGender;
 	String mIntro;
 	String mImg;
-	String mImgf;
 	String mId;
 	String mPw;
 	int mAuth;
@@ -79,11 +78,5 @@ public class Member {
 	}
 	public void setmImg(String mImg) {
 		this.mImg = mImg;
-	}
-	public String getmImgf() {
-		return mImgf;
-	}
-	public void setmImgf(String mImgf) {
-		this.mImgf = mImgf;
 	}
 }
