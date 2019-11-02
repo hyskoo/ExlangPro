@@ -14,7 +14,7 @@
 		SELECT *
 		FROM ( SELECT ROWNUM row_num, sub.* 
 		FROM ( SELECT * FROM notice
-		ORDER BY n_id DESC) sub)
+		ORDER BY ROWNUM DESC) sub)
 		<![CDATA[	
 			WHERE row_num > (#{page}-1)*#{perPage} AND row_num <= #{page}*#{perPage}
 		]]>

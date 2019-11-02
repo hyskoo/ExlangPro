@@ -77,7 +77,6 @@ $(function(){
 	      <div>
 	      <input type="submit" value="Login" class="submitBtn">
 	      </div>
-<!-- 	      <p class="forgot" align="center"><a href="#">Forgot Password?</p> -->
 	    </form>
     </div>
 </body>

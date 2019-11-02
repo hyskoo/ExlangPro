@@ -36,6 +36,7 @@ table {
 	border : 3px solid black;
 }
 .number_notice_list {
+	text-align: center;
 	width: 10%;
 }
 .title_notice_list {

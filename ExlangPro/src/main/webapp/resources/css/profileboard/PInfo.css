@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+* {
+	margin:0; 
+	padding:0;
+}
+
+h2 {
+	padding-bottom : 0.7em ! important;
+}
+
+h3 {
+	color:#f30;
+}
+
+ol {
+	padding-left:3em ! important;
+	list-style:decimal ! important;
+}
+
+ul {
+	padding-left:3em ! important;
+	list-style:square ! important;
+}
+.before li{
+	font-size: 15pt ! important;
+	font-weight: 700 ! important;
+}
+
+.contitle {
+	font-size : 15pt ! important;
+	font-weight : 700 ! important;
+}

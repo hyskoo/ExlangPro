@@ -62,13 +62,14 @@ public class NoticeController {
  	 * @see
  	 */
 	@RequestMapping("/view")
-	String view(int nId, Model model, Pager pager) {
+	String view(int nId, Model model, Pager pager, Notice notice) {
 		
-		Notice notice = service.item(nId);
+		Notice notice2 = service.item(nId);
 		
-		model.addAttribute("item", notice);
+		model.addAttribute("item", notice2);
 		
 		//타 게시물 확인 및 Paging 처리
+		
 		List<Notice> list = service.list(pager);
 		
 		model.addAttribute("list",list);
