@@ -19,7 +19,7 @@ var regExp = /^[a-z]+[a-z0-9]{3,11}$/;	// 맨처음 1자리를 먹었으므로 �
 function noSpace(fuc) { //input에서 사용한 태그에서 실행하는 함수
 	var rspace = /\s/g; //정규표현식 (공백)	
 	if(rspace.exec(fuc.value)) { //공백을 체크
-		alert("공백을 사용할 수 없습니다.");
+		alert("Spaces Cannot Be Used");
 		fuc.value = fuc.value.replace(' ',''); //공백제거
 		return false;
 	}
@@ -31,51 +31,51 @@ function noSpace(fuc) { //input에서 사용한 태그에서 실행하는 함수
 //회원가입 유효성 검사
 function check(){	
 	if(jq("#mPw").val() != jq("#mPwcheck").val()){
-		alert("비밀번호가 다릅니다.");
+		alert("Password is different");
 		mPwcheck.focus();
 		return false;
 	} else if (jq('#mImg').val().substring(33,100).length > 19) {
-		alert("파일명은 16글자 이하만 가능합니다");
+		alert("File name can only Below 16 words");
 		mImg.focus();
 		return false;
 	} else if (jq("#mId").val() == "") {
-		alert("아이디를 입력해주세요");
+		alert("Please Write Your ID");
 		mId.focus();
 		return false;
 	} else if (jq("#mPw").val() == "") {
-		alert("비밀번호를 입력해주세요");
+		alert("Please Write Your Password");
 		mPw.focus();
 		return false;
 	} else if (jq("#mPwcheck").val() == "") {
-		alert("비밀번호 확인을 입력해주세요");
+		alert("Please Check Your Password");
 		mPwcheck.focus();
 		return false;
 	} else if (jq("#mName").val() == "") {
-		alert("이름을 입력해주세요");
+		alert("Please Write Your Name");
 		mName.focus();
 		return false;
 	} else if (jq("#mAge").val() == "") {
-		alert("나이를 입력해주세요");
+		alert("Please Write Your Age");
 		mAge.focus();
 		return false;
 	} else if (jq(':radio[name="mGender"]:checked').length < 1) {
-		alert("성별을 선택해주세요");
+		alert("Please Chooice Your Gender");
 		mGendar.focus();
 		return false;
 	} else if (jq("#mNl").val() == "") {
-		alert("모국어를 입력해주세요");
+		alert("Please Write Your Native Language");
 		mNl.focus();
 		return false;
 	} else if (jq("#mPl").val() == "") {
-		alert("배울언어를 입력해주세요");
+		alert("Please Write Your Practice Language");
 		mPl.focus();
 		return false;
 	}  else if (jq("#mHobby").val() == "") {
-		alert("취미를 입력해주세요");
+		alert("Please Write Your Hobby");
 		mHobby.focus();
 		return false;
 	}  else if (jq("#mIntro").val() == "") {
-		alert("자기소개를 입력해주세요");
+		alert("Please Write Your Introduce");
 		mIntro.focus();
 		return false;
 	} else {
@@ -96,15 +96,15 @@ jq(function() {
 		
 		if(id == ""){
 			jq("#id_check").css("color", "black");
-			jq("#id_check").text("아이디를 입력해주세요.");
+			jq("#id_check").text("Please Write Your ID");
 			return false;
 		} else if(!regExp.test(id)) {
-			jq("#id_check").css("color", "black");
-			jq("#id_check").text("ID can only 4~12 letters long");
+			jq("#id_check").css("color", "red");
+			jq("#id_check").text("ID can only 4~12 words");
 			return false;
 		} else if(regExp.test(id)) {
 			jq("#id_check").css("color", "black");
-			jq("#id_check").text("사용가능한 아이디 입니다.");
+			jq("#id_check").text("Available ID");
 		} 
 
 
@@ -118,7 +118,7 @@ jq(function() {
 			success : function(result){
 				console.log(result)
 				if(result == 1) {
-					jq("#id_check").text("이미 사용중인 아이디입니다.");
+					jq("#id_check").text("Used ID");
 					jq("#id_check").css("color", "red");
 				}
 			}, 
@@ -141,7 +141,7 @@ jq(function() {
 		if (fileNm != "") {
 		    var ext = fileNm.slice(fileNm.lastIndexOf(".") + 1).toLowerCase();
 		    if (!(ext == "gif" || ext == "jpg" || ext == "png")) {
-		        alert("(.jpg, .png, .gif ) 만 업로드 가능합니다.");
+		        alert("Only ImageFile (.jpg, .png, .gif )");
 		        jq("#upload").val("");
 // 		        jq("#mImg").val("");
 		    }

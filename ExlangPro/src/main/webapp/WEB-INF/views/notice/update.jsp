@@ -29,7 +29,7 @@ $(function() {
 		width: 1000,
 		minHeight: 300,             // set minimum height of editor
 		maxHeight: 1000,
-        placeholder: 'Hello bootstrap 4',
+        placeholder: 'Write Contents',
         tabsize: 10,
         focus: true,
         callbacks: {
@@ -70,13 +70,17 @@ function sendFile(files, editor) {
 function check() {
 	var title = $('#nTitle').val();
 	var contents = $('#summernote').val();
-	
+
 	if (title == '' || title == null || $.trim(title) == '') {
-		alert("제목을 입력해주세요.");
+		alert("Please Write Title");
 		return false;
 	}
 	if (contents == '' || contents == null || $.trim(contents) == '<p><br></p>') {
-		alert("내용을 입력해주세요.");
+		alert("Please Write Contents");
+		return false;
+	}
+	if (title.length >= 30) {
+		alert("Title can write only Below 30 words");
 		return false;
 	}
 }
@@ -91,7 +95,7 @@ function check() {
 		<form action="update" method="post" onsubmit="return check();">
 			<div>
 				<label>Title : </label>
-				<input type="text" name="nTitle" id="nTitle" value="${item.nTitle}">
+				<input type="text" name="nTitle" id="nTitle" max="30" value="${item.nTitle}">
 			</div>
 			<div>
 				<label>Contents : </label>
@@ -101,7 +105,7 @@ function check() {
 				<input type="hidden" name="nId" id="nid" value="${item.nId}">
 				
 			<div class="btn_div_notice">
-				<input type="submit" class="btn_notice" value="등록" >
+				<input type="submit" class="btn_notice" value="Update" >
 			</div>
 		</form>
 	</div>

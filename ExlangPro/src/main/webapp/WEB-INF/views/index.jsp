@@ -38,10 +38,10 @@
 				<div class="box">
 					<c:if test="${item.mAuth == 0}">	
 						<c:if test="${item.mImg == '' or item.mImg == null}">
-							<img src="/resources/image/ProfileDefault.jpg" width="320" height="180" alt="기본이미지" >
+							<img src="/resources/image/ProfileDefault.jpg" width="320" height="180" alt="None Image" >
 						</c:if>
 						<c:if test="${item.mImg != null}">
-							<img src="<spring:url value='/upload/signup/${item.mImg}'/>" width="320" height="180" alt="기본이미지" />
+							<img src="<spring:url value='/upload/signup/${item.mImg}'/>" width="320" height="180" alt="None Image" />
 						</c:if>
 						<h3>${item.mName}</h3>
 						<p id="indexIntro">${item.mIntro}</p>

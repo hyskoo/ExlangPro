@@ -19,7 +19,7 @@ var regExp = /^[a-z]+[a-z0-9]{3,11}$/;	// 맨처음 1자리를 먹었으므로 �
 function noSpace(fuc) { //input에서 사용한 태그에서 실행하는 함수
 	var rspace = /\s/g; //정규표현식 (공백)	
 	if(rspace.exec(fuc.value)) { //공백을 체크
-		alert("공백을 사용할 수 없습니다.");
+		alert("Spaces Cannot Be Used");
 		fuc.value = fuc.value.replace(' ',''); //공백제거
 		return false;
 	}
@@ -35,10 +35,10 @@ $(function(){
 		var pw = $("#mPw").val();
 		
 		if ($("#mId").val() == "") {
-			alert("아이디를 입력해주세요");
+			alert("Please Write Your ID");
 			return false;
 		} else if ($("#mPw").val() == "") {
-			alert("비밀번호를 입력해주세요");
+			alert("Please Write Your Password");
 			return false;
 		} else {
 			$.ajax({
@@ -50,10 +50,10 @@ $(function(){
 				},
 				success : function(result){
 					if(result == 1){
-						alert("성공적으로 로그인 되었습니다.");
+						alert("Success Login");
 						location.href = "/";
 					} else {
-						alert("아이디 또는 비밀번호가 틀렸습니다.");
+						alert("ID or Password are different");
 						$("#mId").val("");
 						$("#mPw").val("");
 						$('#mId').focus();
@@ -75,7 +75,7 @@ $(function(){
 	      <input class="un " align="center" type="text" name="mId" id="mId" placeholder="UserID"  minlength="4"  onkeyup="noSpace(this);">
 	      <input class="pass" align="center" type="password" name="mPw" id="mPw" placeholder="PassWord" maxlength="12" onkeyup="noSpace(this);">
 	      <div>
-	      <input type="submit" value="로그인" class="submitBtn">
+	      <input type="submit" value="Login" class="submitBtn">
 	      </div>
 <!-- 	      <p class="forgot" align="center"><a href="#">Forgot Password?</p> -->
 	    </form>

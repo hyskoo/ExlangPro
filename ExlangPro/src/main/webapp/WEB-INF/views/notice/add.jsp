@@ -70,13 +70,17 @@ function sendFile(files, editor) {
 function check() {
 	var title = $('#nTitle').val();
 	var contents = $('#summernote').val();
-	
+
 	if (title == '' || title == null || $.trim(title) == '') {
-		alert("제목을 입력해주세요.");
+		alert("Please Write Title");
 		return false;
 	}
 	if (contents == '' || contents == null || $.trim(contents) == '<p><br></p>') {
-		alert("내용을 입력해주세요.");
+		alert("Please Write Contents");
+		return false;
+	}
+	if (title.length >= 30) {
+		alert("Title can write only Below 30 words");
 		return false;
 	}
 }
@@ -91,17 +95,17 @@ function check() {
 		<form action="add" method="post" onsubmit="return check();">
 			<div>
 				<label>Title : </label>
-				<input type="text" id="nTitle" name="nTitle"  placeholder="제목 : Title">
+				<input type="text" id="nTitle" name="nTitle" max="30" placeholder="Title">
 			</div>
 			<div class="summernote_content">
-				<label>Contents : </label>
+				<label>Contents </label>
 				<textarea id="summernote" name="nContents" class="summernote"></textarea>
 			</div>
 			<div>
 				<input type="hidden" name="mId" id="userid" value="${sessionScope.login}">
 			</div>
 			<div class="btn_div_notice">
-				<input type="submit" class="btn_notice" value="등록" >
+				<input type="submit" class="btn_notice" value="Write" >
 			</div>
 		</form>
 	</div>

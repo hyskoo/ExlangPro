@@ -15,17 +15,17 @@
 		</div>
 		<div id="menu">
 			<ul>
-				<li><a href="/notice/list">공지사항</a></li>
-				<li><a href="/board/list">프로필 게시판</a></li>
-				<li><a href="/board/Info">이용안내</a></li>
+				<li><a href="/notice/list">Notice</a></li>
+				<li><a href="/board/list">Profile Board</a></li>
+				<li><a href="/board/Info">Information Use</a></li>
 				<c:choose>
 					<c:when test="${sessionScope.login_id eq null}">
-						<li><a href="/login">로그인</a></li>
-						<li><a href="/signup">회원가입</a></li>
+						<li><a href="/login">Login</a></li>
+						<li><a href="/signup">Sign Up</a></li>
 					</c:when>
 					<c:otherwise>
 						<li><a href="/member/update?mId=${sessionScope.login_id}" >MyPage</a></li>
-						<li><a href="/logout">로그아웃</a></li>
+						<li><a href="/logout">Logout</a></li>
 					</c:otherwise>
 				</c:choose>
 			</ul>

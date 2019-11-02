@@ -54,7 +54,7 @@
 					</c:forEach>
 				</c:when>
 				<c:otherwise>
-					등록된 내용이 없습니다.
+					None Contents
 				</c:otherwise>
 			</c:choose>
 		</tbody>

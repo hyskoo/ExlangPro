@@ -61,10 +61,10 @@ function profile(){
 								<c:if test="${item.mAuth == 0}">
 									<td class="P_list_image">
 										<c:if test="${item.mImg == '' or item.mImg == null}">
-											<img src="/resources/image/ProfileDefault.jpg"  width="320px" height="180"  alt="기본이미지" >
+											<img src="/resources/image/ProfileDefault.jpg"  width="320px" height="180"  alt="None Image" >
 										</c:if>
 										<c:if test="${item.mImg != null}">
-											<img src="<spring:url value='/upload/signup/${item.mImg}'/>"  width="320px" height="180"  alt="기본이미지" />
+											<img src="<spring:url value='/upload/signup/${item.mImg}'/>"  width="320px" height="180"  alt="None Image" />
 										</c:if>
 										<h1>${item.mName}</h1>
 										<p class="age_gender">Age:${item.mAge}  Gender:${item.mGender}</p>
@@ -78,7 +78,7 @@ function profile(){
 						</c:forEach>
 					</c:when>
 					<c:otherwise>
-						등록된 내용이 없습니다.
+						None Contents
 					</c:otherwise>
 				</c:choose>
 			</tbody>

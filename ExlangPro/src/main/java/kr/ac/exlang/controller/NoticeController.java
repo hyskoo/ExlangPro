@@ -56,6 +56,27 @@ public class NoticeController {
 	}
 	
 	/**
+ 	 * @param Model, Pager, nId
+ 	 * @return view.jsp
+ 	 * @brief 공지사항 글내용을 보여줌. Pager는 list에서 사용하는것을 사용 
+ 	 * @see
+ 	 */
+	@RequestMapping("/view")
+	String view(int nId, Model model, Pager pager) {
+		
+		Notice notice = service.item(nId);
+		
+		model.addAttribute("item", notice);
+		
+		//타 게시물 확인 및 Paging 처리
+		List<Notice> list = service.list(pager);
+		
+		model.addAttribute("list",list);
+		
+		return path + "view";
+	}	
+	
+	/**
  	 * @param 
  	 * @return add.jsp
  	 * @brief add.jsp를 보여주기 윈한 맵핑. GET방식
@@ -114,27 +135,7 @@ public class NoticeController {
 		return "(\"redirect\": false)";
 		
 	}
-	
-	/**
- 	 * @param Model, Pager, nId
- 	 * @return view.jsp
- 	 * @brief 공지사항 글내용을 보여줌. Pager는 list에서 사용하는것을 사용 
- 	 * @see
- 	 */
-	@RequestMapping("/view")
-	String view(int nId, Model model, Pager pager) {
-		
-		Notice notice = service.item(nId);
-		
-		model.addAttribute("item", notice);
-		
-		//타 게시물 확인 및 Paging 처리
-		List<Notice> list = service.list(pager);
-		
-		model.addAttribute("list",list);
-		
-		return path + "view";
-	}	
+
 	/**
  	 * @param Model, nId
  	 * @return update.jsp

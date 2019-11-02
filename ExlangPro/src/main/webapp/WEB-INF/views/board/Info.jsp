@@ -38,7 +38,7 @@
 <!-- Main -->	
 	<div class="container" id="page">
 		<div class="title">
-			<h2>이용안내</h2>
+			<h2>Information Use Site</h2>
 		</div>
 		<div>
 			<p>How to Do A Language Exchange You should practice using the
