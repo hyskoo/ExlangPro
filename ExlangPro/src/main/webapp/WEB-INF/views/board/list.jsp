@@ -42,14 +42,15 @@ function profile(){
 
 <!-- Main -->
 	<div class="container" id="profile_main">
+	<div>
 		<table class="table_profile">
 			<thead>
 				<tr>
-					<th>프로필사진</th>
-					<th>모국어</th>
-					<th>연습언어</th>
-					<th>취미</th>
-					<th>자기소개</th>
+					<th>Profile Image</th>
+					<th>Native Language</th>
+					<th>Practice Language</th>
+					<th>Hobby</th>
+					<th>Introduce</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -70,7 +71,7 @@ function profile(){
 									</td>
 									<td class="P_list_Nl">${item.mNl}</td>
 									<td class="P_list_Pl">${item.mPl}</td>
-									<td class="P_list_Hobby">${item.mHobby}</td>
+									<td class="P_list_Hobby"><p>${item.mHobby}</p></td>
 									<td class="P_list_Intro"><p>${item.mIntro}</p></td>
 								</c:if>
 							</tr>
@@ -152,7 +153,7 @@ function profile(){
 						<td class="Search_name">Age</td>
 						<td>
 							From : <input name="SearchAgeMin" type="number" min="0" placeholder="Optional">
-							To : <input name="SearchAgeMax" type="number" min="0" placeholder="Optional">
+							To : <input name="SearchAgeMax" type="number" min="0" max="150" placeholder="Optional">
 						</td>
 					</tr>
 					<tr>
@@ -168,7 +169,7 @@ function profile(){
 						</td>
 					</tr>
 					<tr class="submit_search">
-						<td colspan="2"><input type="submit" value="검색"></td>
+						<td colspan="2"><input type="submit" value="Seach"></td>
 					</tr>
 			</table>
 		</form>

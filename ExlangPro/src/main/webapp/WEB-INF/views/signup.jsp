@@ -215,7 +215,7 @@ function PreviewFile(e) {
 	      	
 	      		<input class="signInput" align="center" type="text" name="mName" id="mName" placeholder="Name">
 			
-				<input class="signInput" align="center" type="number" name="mAge" id="mAge" placeholder="Age">
+				<input class="signInput" align="center" type="number" name="mAge" min="0" max="150" id="mAge" placeholder="Age">
 				<div class="radio">
 					<input type="radio" name="mGender" value="♂" id="mGender" checked="checked"> 
 					<label for="gender_man"><span>Man</span></label>

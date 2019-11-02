@@ -35,10 +35,10 @@
 	<table class="table_notice" >
 		<thead>
 			<tr>	
-				<th>게시글번호</th>
-				<th>제목</th>
-				<th>작성자</th>
-				<th>날짜</th>
+				<th>No.</th>
+				<th>Title</th>
+				<th>Writer</th>
+				<th>Date</th>
 			</tr>
 		</thead>
 		<tbody>

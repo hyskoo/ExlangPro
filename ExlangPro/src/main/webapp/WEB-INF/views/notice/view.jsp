@@ -31,8 +31,9 @@
 	<div class="container" id="page_notice_view">
 		<c:if test="${sessionScope.auth != null and sessionScope.auth != 0}">
 			<div class="btn_div_notice">
-				<a href="update?nId=${item.nId}" class="btn_notice">수정</a>
-				<a href="delete?nId=${item.nId}" class="btn_notice">삭제</a>
+				<a href="add" class="btn_notice">Writing</a>
+				<a href="update?nId=${item.nId}" class="btn_notice">Update</a>
+				<a href="delete?nId=${item.nId}" class="btn_notice">Delete</a>
 			</div>	
 		</c:if>
 		
@@ -53,10 +54,10 @@
 		<table class="table_notice" >
 			<thead>
 				<tr>	
-					<th>게시글번호</th>
-					<th>제목</th>
-					<th>작성자</th>
-					<th>날짜</th>
+					<th>No.</th>
+					<th>Title</th>
+					<th>Writer</th>
+					<th>Date</th>
 				</tr>
 			</thead>
 			<tbody>
