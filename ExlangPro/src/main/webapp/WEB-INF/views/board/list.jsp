@@ -10,7 +10,7 @@
 <meta charset="UTF-8">
 <title>Profile Board</title>
 </head>
-<link rel="stylesheet" type="text/css" href="/resources/profileboard/Plist.css">
+<link rel="stylesheet" type="text/css" href="/resources/css/profileboard/Plist.css">
 <!-- BootStrap Templet -->
 <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
 <link href="/resources/bootstrapCSS/default.css" rel="stylesheet" type="text/css" media="all" />
@@ -36,28 +36,11 @@ function profile(){
 
 </script>
 <body class="indexBody">
-	<div id="header" class="container">
-		<div id="logo">
-			<h1><a href="../">Exlang</a></h1>
-		</div>
-		<div id="menu">
-			<ul>
-				<li><a href="/notice/list">공지사항</a></li>
-				<li><a href="/board/list">프로필 게시판</a></li>
-				<li><a href="/board/InformationUse">이용안내</a></li>
-				<c:choose>
-					<c:when test="${sessionScope.login_id eq null}">
-						<li><a href="/login">로그인</a></li>
-						<li><a href="/signup">회원가입</a></li>
-					</c:when>
-					<c:otherwise>
-						<li><a href="/member/update?mId=${sessionScope.login_id}" >MyPage</a></li>
-						<li><a href="/logout">로그아웃</a></li>
-					</c:otherwise>
-				</c:choose>
-			</ul>
-		</div>
-	</div>
+
+<!-- Include Header.jsp -->
+<jsp:include page="../header.jsp"></jsp:include>
+
+<!-- Main -->
 	<div class="container" id="profile_main">
 		<table class="table_profile">
 			<thead>
@@ -99,7 +82,7 @@ function profile(){
 				</c:choose>
 			</tbody>
 		</table>
-<!--  페이징처리 -->
+<!-- Paging -->
 		<div>${pager.paging}</div>
 	</div>
 
@@ -190,13 +173,9 @@ function profile(){
 			</table>
 		</form>
 	</div>
-<div id="footer" class="container">
-	<h2>Copyright © 2018-2019 Exlang.com</h2>
-	<p>Featuring 15 languages, including...</p>	
-	<hr size="1" width="100%" align="center" noshade>
-	<p> English Spanish French Italian German Japanese Swedish Greek Arabic <p>
-	<p> Korean Chinese Russian Thai <p>
-</div>
-	
+
+<!-- Include Footer.jsp -->
+<jsp:include page="../footer.jsp"></jsp:include>
+
 </body>
 </html>

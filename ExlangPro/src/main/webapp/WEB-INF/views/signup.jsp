@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Sign Up</title>
-<link rel="stylesheet" type="text/css" href="/resources/signup.css">
+<link rel="stylesheet" type="text/css" href="/resources/css/signup.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
 var jq = jQuery.noConflict();
@@ -155,9 +155,8 @@ jq(function() {
 					data : data,
 					dataType : 'json',
 					success : function(result){
-						alert(result.url);
 						var enc = result.filename;
-						console.log(enc.substring(33,100));  // uuid 자르기
+// 						console.log(enc.substring(33,100));  // uuid 자르기
 						jq("input[name=mImg]").attr("value",enc);  //input태그에 ajax성공값추가
 						
 					}	

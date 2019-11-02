@@ -15,10 +15,15 @@ import kr.ac.exlang.utill.Pager;
 @RequestMapping("/board")
 public class BoardController {
 	final String path = "board/";
-	
+	 
 	@Autowired
 	BoardService service;
 	
+	/**
+ 	 * @param Model, Pager
+ 	 * @return list.jsp
+ 	 * @brief path라는 스트링 변수 선언으로 "board/"대신 path를 이용 
+ 	 */
 	@RequestMapping("/list")
 	String list(Model model, Pager pager) {
 
@@ -29,9 +34,14 @@ public class BoardController {
 		return path + "list";
 	}
 	
-	@RequestMapping("/InformationUse")
+	/**
+ 	 * @param 
+ 	 * @return Info.jsp
+ 	 * @brief 
+ 	 */
+	@RequestMapping("/Info")
 	String info() {
 		
-		return path + "InformationUse";
+		return path + "Info";
 	}
 }

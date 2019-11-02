@@ -21,11 +21,15 @@ public class MemberController {
 	@Autowired
 	MemberService service;
 	
+	/**
+ 	 * @param Model, HttpSession, mId
+ 	 * @return update.jsp
+ 	 * @brief 회원 정보 수정을 위해서 mId에 해당하는 회원의 정보를 가져온다.
+ 	 * mId는 update.jsp에서 ${SessionScope.login_id}를 통해 url과 함께 보내준다
+ 	 */
 	@RequestMapping(value="/update", method=RequestMethod.GET)
-	String update(String mId, Model model, HttpSession session) {
-		
-		session.getAttribute("login");
-		
+	String update(String mId, Model model) {
+
 		Member list = service.list(mId);
 		
 		model.addAttribute("list", list);
@@ -33,23 +37,30 @@ public class MemberController {
 		return path + "update";
 	}
 	
+	/**
+ 	 * @param Member
+ 	 * @return RequestMapping("/")
+ 	 * @brief 변경된 회원의 정보를 Member.java통해 Get Set후에 DB에 저장
+ 	 */
 	@RequestMapping(value="/update", method=RequestMethod.POST)
 	String update(Member member) {
-		
-		System.out.println(member.getmImg());
-		System.out.println(member.getmGender());
 		
 		service.update(member);
 		
 		return "redirect:/";
 	}
 	
+	/**
+ 	 * @param mId
+ 	 * @return RequestMapping("/")
+ 	 * @brief Session에 있는 내용을 삭제 한후 mId에 해당하는 회원의 정보를 모두 삭제. 
+ 	 */
 	@RequestMapping("/delete")
-	String delete(String mId) {
-		
+	String delete(String mId, HttpSession session) {
+		session.invalidate();
 		service.delete(mId);
 		
-		return "/";
+		return "redirect:/";
 	}
 	
 

@@ -141,10 +141,6 @@ public class Pager {
 		SearchAgeMax = searchAgeMax;
 	}
 
-	
 
-	
-// 검색에서의 보안처리
-	
 
 }

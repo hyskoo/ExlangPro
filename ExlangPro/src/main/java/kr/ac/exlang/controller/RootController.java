@@ -31,6 +31,11 @@ public class RootController {
 	@Autowired
 	MemberService service;	
 	
+	/**
+ 	 * @param Model
+ 	 * @return index.jsp
+ 	 * @brief Member의 내용을 index.jsp에 보여주기 위해서 Model을 활용
+ 	 */
 	@RequestMapping("/")
 	String index(Model model) {
 		
@@ -40,26 +45,35 @@ public class RootController {
 		
 		return "index";
 	}
-
+	
+	/**
+ 	 * @param 
+ 	 * @return signup.jsp
+ 	 * @brief 회원가입을 위한 signup.jsp를 보여주기 위한것
+ 	 */
 	@RequestMapping(value="signup", method=RequestMethod.GET)
-	String signup(Model model) {
-		
-		model.addAttribute("list", filelist);
-		
+	String signup() {
 		return "signup";
 	}
-	
-	
+	/**
+ 	 * @param Member
+ 	 * @return RequestMapping("/")
+ 	 * @brief 변경된 회원의 정보를 Member.java통해 Get Set후에 DB에 저장
+ 	 */
 	@RequestMapping(value="signup", method=RequestMethod.POST)
 	String signup(Member member) {
-		
-		System.out.println(member.getmName());
-		System.out.println(member.getmImg());
-		
+
 		service.signup(member);
 		
 		return "redirect:/";
 	}
+	/**
+ 	 * @param FileUpload
+ 	 * @return Json
+ 	 * @brief 한글깨짐을 위해 produces 설정. 업로드 된 파일의 위치를 D://upload/signup 폴더에 저장. 
+ 	 * 		  Json형태로 값을 보내기 위해서 return 형식을 json형식으로 강제로 입력. 
+ 	 * 		  @ResponseBody는 Ajax통신을 위해사용.
+ 	 */
 	@ResponseBody
 	@RequestMapping(value="/upload", method=RequestMethod.POST, produces="application/json; charset=utf8")
 	String upload(FileUpload fileupload) {
@@ -72,23 +86,27 @@ public class RootController {
 //			return "{\"result\": true, \"filename\": \"" + fileupload.getFilename() + "\", \"filesize\": "+fileupload.getFilesize() +"}";
 		}
 		
-		
 		return "(\"redirect\": false)";
 		
 	}
 	
-	
+	/**
+ 	 * @param 
+ 	 * @return login.jsp
+ 	 * @brief 로그인을 위한 login.jsp를 보여주기 위한것
+ 	 */
 	@RequestMapping(value="/login", method=RequestMethod.GET)
-//	public void loginGET(@ModelAttribute("loginlist") Member member, Model model) {
-//		
-//		
-//	} 
-	//	@ModelAttribute (객체) 는 해당객체를 자동으로 view까지 보내주는 역할을 한다.
 	String loginGET() {	
 
 		return "/login";
 	} 
 	
+	/**
+ 	 * @param Member, HttpSession, Model
+ 	 * @return Stirng "1" or "0"
+ 	 * @brief 입력받은 mId와 mPw를 DB와의 통신을 통하여 가져온후 값이 null이 아니면 "1"을 return. Session에 값을 저장
+ 	 * 		  @ResponseBody는 Ajax통신을 위해사용.
+ 	 */
 	@ResponseBody
 	@RequestMapping(value="/loginPost", method=RequestMethod.POST)
 	public String loginPOST(Member member, HttpSession session, Model model) throws Exception {
@@ -101,11 +119,7 @@ public class RootController {
 			session.setAttribute("login_id", login.getmId());
 			session.setAttribute("login_pw", login.getmPw());
 			session.setAttribute("auth", login.getmAuth());
-			
-//			System.out.println(session.getAttribute("login_id"));
-//			System.out.println(session.getAttribute("login_pw"));
-//			System.out.println(session.getAttribute("auth"));
-			
+
 			return "1";
 		} else {
 			
@@ -116,6 +130,11 @@ public class RootController {
 		
 	}
 	
+	/**
+ 	 * @param HttpSession
+ 	 * @return RequestMapping("/")
+ 	 * @brief Session값을 초기화 시킨다.
+ 	 */
 	@RequestMapping("/logout")
 	String logout(HttpSession session) {
 		session.invalidate();
@@ -123,16 +142,14 @@ public class RootController {
 		return "redirect:/";
 	}
 	
+	/**
+ 	 * @param mId
+ 	 * @return 1 or null
+ 	 * @brief 회원가입시 ID 중복확인. @ResponseBody는 Ajax통신을 위해사용.
+ 	 */
 	@ResponseBody
 	@RequestMapping(value="/ajax/idch", method=RequestMethod.POST)
 	int idch(String mId) {
-		
-		return service.idch(mId);
-	}
-	
-	@ResponseBody
-	@RequestMapping(value="/ajax/loginch", method=RequestMethod.POST)
-	int loginch(String mId) {
 		
 		return service.idch(mId);
 	}

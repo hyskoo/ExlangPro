@@ -14,6 +14,9 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		
 		HttpSession session = request.getSession();
 		
+		/**
+	 	 * @brief Session에 있는 login_id의 값을 체크하여 존재하지 않으면 login을 매핑으로 하는 컨트롤러로 다시 보내준다.
+	 	 */
 		if(session.getAttribute("login_id") == null) {
 			
 			response.sendRedirect("/login");

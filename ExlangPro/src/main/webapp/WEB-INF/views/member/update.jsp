@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="/resources/signup.css">
+<link rel="stylesheet" type="text/css" href="/resources/css/signup.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
 var jq = jQuery.noConflict();
@@ -144,7 +144,7 @@ function PreviewFile(e) {
 <body>
 	<div class="main">
 	    <p class="sign" align="center">My Page</p>
-	    
+	    <div class="signout"><a href="/member/delete?mId=${sessionScope.login_id}">Sign Out</a></div>
 	    <form action="update" method="post" onsubmit="return check();" id="form_id" class="form_id">
 
 		    	<input class="signInput" align="center" type="text" name="mId" id="mId" minlength="4" maxlength="10" onkeyup="noSpace(this);" placeholder="UserID" value="${list.mId}" readonly>
@@ -219,8 +219,8 @@ function PreviewFile(e) {
 	      <div>
 	      	<input type="submit" value="Sign Up" class="submitBtn">
 	      </div>
-<!-- 	      <p class="forgot" align="center"><a href="#">Forgot Password?</p> -->
 	    </form>
     </div>
+    
 </body>
 </html>
