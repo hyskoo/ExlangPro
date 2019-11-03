@@ -26,7 +26,6 @@ function noSpace(fuc) { //input에서 사용한 태그에서 실행하는 함수
 }
 
 //회원가입 유효성 검사
-
 $(function(){
 	$('.submitBtn').click(function(event){
 		event.preventDefault(); //이벤트 초기화

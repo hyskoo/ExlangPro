@@ -20,7 +20,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script type="text/javascript">
-
+	
 </script>
 <body class="indexBody">
 
@@ -29,6 +29,8 @@
 
 <!-- Main -->
 	<div class="container" id="page_notice_view">
+		
+		<!-- 관리자 계정 여부 확인 -->
 		<c:if test="${sessionScope.auth != null and sessionScope.auth != 0}">
 			<div class="btn_div_notice">
 				<a href="add" class="btn_notice">Writing</a>
@@ -37,6 +39,7 @@
 			</div>	
 		</c:if>
 		
+		<!-- 제목, 내용, 글쓴이, 작성시간 -->
 		<div class="container" id="Notice_view">
 			<div class="view_head">
 				<h1><span>${item.nTitle}</span></h1>
@@ -78,8 +81,8 @@
 				</c:choose>
 			</tbody>
 		</table>
-<!-- Paging -->
-			<div>${pager.paging}</div>
+<!-- Paging 을 위해 paging_view 메소드 생성-->
+			<div>${pager.paging_view}</div>
 		</div>
 	</div> <!-- Main END class="container" id="page_notice_view" -->
  

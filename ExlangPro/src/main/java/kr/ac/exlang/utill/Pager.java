@@ -43,6 +43,35 @@ public class Pager {
 		
 		return html;
 	}
+	public String getPaging_view(){
+		String html;
+		int maxPage = (int) Math.ceil(total/perPage);
+		int startPage = ((page-1) / perPage) * perPage + 1;
+		int endPage = startPage + (perPage - 1) > maxPage ? maxPage : startPage + (perPage - 1);
+		
+		String searchSQL = "";
+		if(SearchAgeMin != 0 && SearchAgeMax != 0) {
+			searchSQL = "SearchNl=" + SearchNl + "&SearchPl="+ SearchPl + "&SearchGender="+ SearchGender + "&SearchAgeMin="+ SearchAgeMin + "&SearchAgeMax="+ SearchAgeMax 
+			 + "&SearchHobby="+ SearchHobby + "&SearchUserName=" + SearchUserName + "&";
+		}
+		
+//		html형식으로 내용찍기
+		html = "<div class="+"text-center"+">";	
+		html += "<ul class="+"pager_ul"+">";
+		html += "<li><a href='list?"+ searchSQL + "page=1'> << </a></li>";
+		html += "<li><a href='list?"+ searchSQL + "page=" + (page <= 1 ? 1 : page - 1) + "'> < </a></li>";
+		
+		for(int i = startPage; i <= endPage; i++) {
+			html += "<li class='"+ (i == page ? "page_on" : "") +"'><a href='list?"+ searchSQL + "page=" + i + "'> " + i + "</a></li>";
+		}
+
+		html += "<li><a href='list?"+ searchSQL + "page=" + (page + 1 > maxPage ? maxPage : page+1 ) + "'> > </a></li>";
+		html += "<li><a href='list?"+ searchSQL + "page=" + maxPage + "'> >> </a></li>";
+		html += "</ul>";
+		html += "</div>";
+		
+		return html;
+	}
 	
 
 // 페이징 처리용 Get, Set
@@ -68,8 +97,6 @@ public class Pager {
 		this.total = total;
 	}
 
-
-	
 // 검색용 Get, Set
 
 	public String getSearchNl() {

@@ -24,6 +24,8 @@
 
 <!-- JavaScript -->
 <script type="text/javascript">
+
+//Summernote editor 사용
 $(function() {
 	$('#summernote').summernote({
 		width: 1000,
