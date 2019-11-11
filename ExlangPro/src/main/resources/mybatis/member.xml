@@ -47,7 +47,7 @@
 		SELECT *
 		FROM member
 		WHERE m_auth = '0'
-		ORDER BY ROWNUM DESC
+		ORDER BY DBMS_RANDOM.RANDOM()
 	)
 	<![CDATA[
 		WHERE ROWNUM <= 6
